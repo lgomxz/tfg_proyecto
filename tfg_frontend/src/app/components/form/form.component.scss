@@ -1,0 +1,212 @@
+form {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+
+  label {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .infoField {
+    display: flex;
+
+    .formField {
+      display: flex;
+      flex-direction: column;
+      margin-top: 10px;
+      margin-inline: 10px;
+
+      label {
+        font-size: smaller;
+        font-weight: 500;
+
+        .mandatory-asterisk {
+          color: red;
+        }
+      }
+
+      .selectInfo {
+        display: flex;
+        align-items: baseline;
+
+        .passwordInput {
+          display: flex;
+          flex-direction: column;
+          
+          flex-grow: 1;
+          .passwdStrengthMeter {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            margin-top: 10px;
+          
+            .passwordStrengthLabel {
+              height: 20px;
+              font-size: 14px;
+            }
+          
+            progress {
+              width: 100%;
+              height: 10px; 
+              border: none; 
+              border-radius: 5px; 
+          
+              &::-webkit-progress-bar {
+                background-color: rgb(231, 231, 231); 
+                border-radius: 5px; 
+              }
+          
+              &::-webkit-progress-value {
+                border-radius: 5px; 
+              }
+              
+              &.strength-very-weak::-webkit-progress-value {
+                background-color: #cf2a2a;
+              }
+          
+              &.strength-weak::-webkit-progress-value {
+                background-color: #ebc320;
+              }
+          
+              &.strength-good::-webkit-progress-value {
+                background-color: #ace627; 
+              }
+          
+              &.strength-strong::-webkit-progress-value {
+                background-color: #32b932; 
+              }
+          
+              /* Estilo para navegadores Firefox */
+              &::-moz-progress-bar {
+                border-radius: 5px; 
+              }
+            }
+          }
+        }
+
+        p-dropdown {
+          width: 100%;
+          margin-right: 10px;
+          margin-left: 5px;
+        }
+
+        ::ng-deep .p-inputtext,
+        ::ng-deep .p-calendar,
+        ::ng-deep .p-inputwrapper,
+        ::ng-deep .p-inputtextarea {
+          width: 100%;
+        }
+
+        ::ng-deep .p-inputtextarea {
+          resize: none;
+
+          &::-webkit-scrollbar {
+            width: 5px;
+          }
+
+          &::-webkit-scrollbar-track {
+            background: #f1f1f1;
+          }
+
+          &::-webkit-scrollbar-thumb {
+            background: #2B2577;
+          }
+        }
+
+        .fa-circle-info {
+          color: #2B2577;
+          padding-top: 1rem;
+          margin-right: 10px;
+          cursor: pointer;
+          transition: all 0.2s ease-in-out;
+          font-size: 1.3rem;
+        }
+
+        .fa-circle-info:hover {
+          transform: scale(1.2);
+        }
+      }
+
+      .error-message {
+        color: red;
+        font-size: smaller;
+        margin-top: 5px;
+        min-height: 1.2em;
+        visibility: hidden;
+      }
+
+      .error-message.visible {
+        visibility: visible; 
+      }
+
+      .invalid {
+        animation: blink-red 2s steps(4, end) forwards;
+        border: 2px solid red;
+        border-radius: 5px;
+      }
+
+      .invalid.persistent {
+        animation: none;
+        border: 2px solid red;
+        border-radius: 5px;
+      }
+
+      .correct {
+        border: 2px solid #2ecc71;
+        border-radius: 5px;
+      }
+      
+    }
+  }
+
+  .readonly-text {
+    color: rgb(176, 176, 176); 
+    background-color: #f9f9f9;
+    cursor: not-allowed;
+  }
+
+
+  .extraShort {
+    width: 5%;
+  }
+
+  .short {
+    width: 20%;
+  }
+
+  .medium {
+    width: 30%;
+  }
+
+  .large {
+    width: 50%;
+  }
+
+  .extraLarge {
+    width: 70%;
+  }
+
+  .full {
+    width: 100%;
+  }
+}
+
+// Animación para parpadear en rojo
+@keyframes blink-red {
+  0% {
+    border-color: red;
+  }
+  25% {
+    border-color: transparent;
+  }
+  50% {
+    border-color: red;
+  }
+  75% {
+    border-color: transparent;
+  }
+  100% {
+    border-color: red;
+  }
+}

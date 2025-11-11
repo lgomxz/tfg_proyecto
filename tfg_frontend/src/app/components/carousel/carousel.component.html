@@ -1,0 +1,26 @@
+<p-carousel
+  *ngIf="bones && bones.length > 0"
+  [value]="bones"
+  [numVisible]="1"
+  [circular]="true"
+  (onPage)="onPage($event)">
+  <ng-template let-bone pTemplate="item">
+    <div class="border-1 surface-border border-round m-2 p-3">
+      <div class="mb-3">
+        <div
+          class="relative mx-auto zoom-container"
+          (wheel)="onZoom($event)"
+          (mousedown)="onMouseDown($event)"
+          (mousemove)="onMouseMove($event)"
+          (mouseup)="onMouseUp($event)">
+          <img
+            [src]="bone.link"
+            [alt]="bone.name"
+            [class.zoom-image]="activeIndex === bones.indexOf(bone)"
+            class="border-round"
+            #image />
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</p-carousel>

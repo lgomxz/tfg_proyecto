@@ -1,0 +1,116 @@
+<form [formGroup]="form">
+  <div *ngFor="let control of formConfig" class="rowForm">
+    <label>{{ control.groupName }}</label>
+    <div class="infoField">
+      <div
+        class="formField"
+        *ngFor="let field of control.child"
+        [ngClass]="getInputWidth(field.width)">
+        <label [for]="field.apiField" [ngClass]="{ required: field.mandatory }">
+          {{ field.label }}
+          <span *ngIf="field.mandatory" class="mandatory-asterisk">*</span>
+        </label>
+        <div class="selectInfo">
+          <input
+            *ngIf="
+              field.type === 'text' ||
+              field.type === 'email' ||
+              field.type === 'number'
+            "
+            [type]="field.type"
+            pInputText
+            [id]="field.apiField"
+            [formControlName]="field.apiField"
+            [placeholder]="'Enter ' + field.label"
+            [readonly]="field.readOnly"
+            (focus)="preventFocus($event, field.readOnly ?? false)"
+            [ngClass]="getFieldClass(field.apiField)" />
+          <p-dropdown
+            *ngIf="field.type === 'select'"
+            [id]="field.apiField"
+            [placeholder]="'Select ' + field.label"
+            [options]="field.values"
+            [formControlName]="field.apiField"
+            optionLabel="description"
+            optionValue="code"
+            required
+            [disabled]="field.readOnly ?? false"
+            (onChange)="onDropdownChange(field.apiField)"
+            (focus)="preventFocus($event, field.readOnly ?? false)"
+            [ngClass]="[
+              getFieldClass(field.apiField),
+              field.readOnly ? 'readonly-text' : '',
+            ]">
+          </p-dropdown>
+          <p-calendar
+            *ngIf="field.type === 'date'"
+            [id]="field.apiField"
+            [formControlName]="field.apiField"
+            [placeholder]="'Enter ' + field.label"
+            [inputId]="field.apiField"
+            [iconDisplay]="'input'"
+            showIcon="true"
+            dateFormat="yy-mm-dd"
+            [ngClass]="getFieldClass(field.apiField)">
+          </p-calendar>
+          <textarea
+            *ngIf="field.type === 'textarea'"
+            pInputTextarea
+            rows="5"
+            [formControlName]="field.apiField"
+            [placeholder]="'Enter your text here...'"
+            [readonly]="field.readOnly"
+            (focus)="preventFocus($event, field.readOnly ?? false)"
+            [ngClass]="getFieldClass(field.apiField)">
+          </textarea>
+          <div class="passwordInput">
+            <p-password
+              *ngIf="field.type === 'password'"
+              [id]="field.apiField"
+              [formControlName]="field.apiField"
+              [toggleMask]="true"
+              placeholder="Password"
+              [feedback]="false"
+              [ngClass]="getFieldClass(field.apiField)">
+            </p-password>
+
+            <div
+              class="passwdStrengthMeter"
+              *ngIf="
+                field.type === 'password' && field.showPasswordStrengthMeter
+              ">
+              <div class="passwordStrengthLabel">
+                {{ passwordStrength[field.apiField]?.label }}
+              </div>
+              <progress
+                max="4"
+                [value]="passwordStrength[field.apiField]?.score ?? 0"
+                [ngClass]="
+                  getPasswordStrengthClass(
+                    passwordStrength[field.apiField]?.score ?? 0
+                  )
+                "></progress>
+            </div>
+          </div>
+          <div
+            *ngIf="field.showAtlasButton"
+            class="iconAtlasInfo"
+            (click)="onOpenAtlas(field.id)">
+            <i class="fa-solid fa-circle-info"></i>
+          </div>
+        </div>
+        <div class="error-message" [ngClass]="getFieldClass(field.apiField)">
+          <small *ngIf="form.get(field.apiField)?.errors?.['required']"
+            >This field is required.</small
+          >
+          <small *ngIf="form.get(field.apiField)?.errors?.['email']"
+            >Invalid email format.</small
+          >
+          <small *ngIf="form.get(field.apiField)?.errors?.['pattern']"
+            >Invalid input format.</small
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

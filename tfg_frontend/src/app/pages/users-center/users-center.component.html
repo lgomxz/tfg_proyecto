@@ -1,0 +1,46 @@
+<div class="usersTabs">
+  <p-tabView>
+    <p-tabPanel header="{{ 'TAB.USERS' | translate }}">
+      <app-table
+        [tableData]="myUsersData"
+        [tableConfig]="usersColumns"
+        [showActions]="true"
+        (selectedRow)="selectRow($event)"
+        [isUserIcons]="!isUserIcons"
+        (delete)="onDeleteRow($event)"
+        (edit)="onEditRow($event)">
+      </app-table>
+    </p-tabPanel>
+
+    <p-tabPanel header="{{ 'TAB.PENDING' | translate }}">
+      <app-table
+        [tableData]="myPendingUsersData"
+        [tableConfig]="usersColumns"
+        [showActions]="true"
+        (selectedRow)="selectRow($event)"
+        [isUserIcons]="isUserIcons"
+        (accept)="onAcceptRow($event)"
+        (decline)="onDeclineRow($event)">
+      </app-table>
+    </p-tabPanel>
+
+    <app-new-dialog
+      #newDialogComponent
+      [(visible)]="showAcceptUserDialog"
+      [formConfig]="acceptUserDialogConfig">
+    </app-new-dialog>
+    <app-new-dialog
+      [(visible)]="showDeclineUserDialog"
+      [formConfig]="declineUserDialogConfig">
+    </app-new-dialog>
+    <app-new-dialog
+      [(visible)]="showDeleteUser"
+      [formConfig]="deleteUserDialog">
+    </app-new-dialog>
+    <app-new-dialog
+      #editUserDialogComponent
+      [(visible)]="showEditUser"
+      [formConfig]="editUserDialog">
+    </app-new-dialog>
+  </p-tabView>
+</div>

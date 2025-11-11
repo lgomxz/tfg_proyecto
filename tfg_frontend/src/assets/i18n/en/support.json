@@ -1,0 +1,12 @@
+{
+  "CONTACT_SUPPORT": "Contact & Support",
+  "INTRO_TEXT": "If you have any questions or require assistance with our project, we are here to help. We aim to provide comprehensive support to address any inquiries or issues you may encounter.",
+  "REVIEW_DOC": "Before reaching out, we encourage you to review our Documentation section.",
+  "DOC_DETAIL": "It contains detailed information that may already address your question or provide the guidance you need. The Documentation includes explanations on how to use various tools, descriptions of features, and general best practices.",
+  "SUPPORT_FORM": "If you cannot find the answer in the Documentation, please use the support form on the right side of this page.",
+  "FORM_DETAIL": "When filling out the form, include as much detail as possible about your issue or question. This will help us provide a more accurate and timely response. Make sure to specify the nature of the problem, any steps you have taken, and any relevant error messages.",
+  "EXPERIENCE_IMPORTANCE": "Your experience is important to us, and we want to ensure you receive the support you need to make the most of our project.",
+  "SUBJECT": "Subject",
+  "DESCRIPTION_LABEL": "Description (max. 2000 characters)",
+  "SEND_BUTTON": "Send"
+}

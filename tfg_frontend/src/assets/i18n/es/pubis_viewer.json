@@ -1,0 +1,42 @@
+{
+  "PUBIS_ID": "Pubis ID",
+  "PUBIS_SEX": "Sexo",
+   "ERROR_OUTLINE": "Por favor, complete todos los campos obligatorios antes de guardar.",
+  "TRAINING": {
+    "COMPLETED": "Entrenamiento Completado"
+  },
+  "PUBIS": {
+    "AURICULAR_FACE": "Cara auricular",
+    "RIDGES_AND_GROOVES": "Crestas y surcos",
+    "REGULAR_POROSITY": "Porosidad regular",
+    "GROOVES_SHALLOW": "Surcos poco profundos",
+    "GROOVES_REMAINS": "Restos de surcos",
+    "NO_GROOVES": "Sin surcos",
+    "IRREGULAR_POROSITY": "Porosidad irregular",
+    "ABSENCE": "Ausencia",
+    "MEDIUM": "Media",
+    "MUCH": "Alta",
+    "UPPER_SYMPHYSIAL_EXTREMITY": "Extremidad superior de la sínfisis",
+    "DEFINITION": "Definición",
+    "NOT_DEFINED": "No especificado",
+    "DEFINED": "Definido",
+    "BONY_NODULE": "Nódulo óseo",
+    "ABSENT": "Ausente",
+    "PRESENT": "Presente",
+    "LOWER_SYMPHYSIAL_EXTREMITY": "Extremidad inferior de la sínfisis",
+    "DORSAL_GROOVE": "Surco dorsal",
+    "DORSAL_MARGIN": "Borde dorsal",
+    "CLOSED": "Cerrado",
+    "DORSAL_PLATEAU": "Meseta dorsal",
+    "VENTRAL_MARGIN": "Borde ventral",
+    "VENTRAL_BEVEL": "Bisel ventral",
+    "IN_PROCESS": "En proceso",
+    "PARTIALLY_FORMED": "Parcialmente formado",
+    "FORMED_WITHOUT_RAREFACTIONS": "Borde ventral formado sin excrescencias",
+    "FORMED_WITH_FEW_RAREFACTIONS": "Borde ventral formado con pocas excrescencias",
+    "FORMED_WITH_LOT_RECESSES_AND_PROTRUSIONS": "Borde ventral formado con muchas excrescencias",
+    "OBSERVATIONS": "Observaciones",
+    "ESTIMATED_BY_PRACTITIONER": "Estimado por el practicante",
+    "TODD_PHASE": "Fase de Todd"
+  }
+}

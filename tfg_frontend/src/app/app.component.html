@@ -1,0 +1,14 @@
+<div class="mainHtml">
+  <div class="topSide">
+    <app-navbar class="appNavbar"></app-navbar>
+    <app-spinner-loader
+      *ngIf="(isAuthChecked$ | async) === false"
+      class="spinnerOverlay"></app-spinner-loader>
+
+    <div class="mainPage" *ngIf="(isAuthChecked$ | async) === true">
+      <app-breadcrumb *ngIf="showBreadcrumb" [items]="items"></app-breadcrumb>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  <app-footer class="appFooter"></app-footer>
+</div>

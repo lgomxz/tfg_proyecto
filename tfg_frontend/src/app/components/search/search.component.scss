@@ -1,0 +1,31 @@
+.filtering {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-block: 30px;
+
+  .search{
+    padding-right: 20px;
+    input{
+      width: 400px;
+    }
+  }
+
+  .filterButtons {
+    display: flex;
+    gap: 20px; 
+
+    button {
+      .mat-icon {
+        font-size: 1.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin: 0;
+        color: white;
+        
+      }
+    }
+  }
+}

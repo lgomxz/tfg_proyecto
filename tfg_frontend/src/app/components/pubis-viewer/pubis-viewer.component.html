@@ -1,0 +1,130 @@
+<div class="body">
+  <div class="leftSide">
+    <div class="sampleInfo">
+      <div class="infoItem">
+        <span class="label"> {{ 'PUBIS_ID' | translate }}:</span>
+        <span class="value">{{ pubisObj?.shortId }}</span>
+      </div>
+      <div class="infoItem">
+        <span class="label"> {{ 'PUBIS_SEX' | translate }}:</span>
+        <span class="value">{{
+          pubisObj?.subject?.sex === 'masc' ? 'Male' : 'Female'
+        }}</span>
+      </div>
+      <div
+        class="linkData"
+        [pTooltip]="'TOOLTIPS.MORE_INFO' | translate"
+        tooltipPosition="bottom"
+        (click)="openNewWindow()">
+        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+      </div>
+    </div>
+    <app-form
+      [form]="form"
+      [currentMode]="currentMode"
+      [formConfig]="formConfig"
+      [formSubmitted]="formSubmitted"
+      [comparisonResults]="comparisonResults"
+      (openAtlas)="openAtlas($event)">
+    </app-form>
+
+    <div class="message-space">
+      <div class="validation-message" *ngIf="showErrorMessage">
+        <mat-icon color="warn">error_outline</mat-icon>
+        <span class="error-text">{{ 'ERROR_OUTLINE' | translate }}</span>
+      </div>
+    </div>
+
+    <div class="saveButton" *ngIf="currentMode === 'labelling'">
+      <button mat-raised-button color="primary" (click)="saveFormData()">
+        {{ 'BUTTONS.SAVE' | translate }}
+      </button>
+    </div>
+
+    <div class="checkButton" *ngIf="currentMode === 'training'">
+      <button mat-raised-button color="primary" (click)="checkFormData()">
+        {{ 'BUTTONS.VERIFY' | translate }}
+      </button>
+    </div>
+  </div>
+
+  <div
+    class="rightSide"
+    *ngIf="
+      currentMode !== 'single-sample' && currentMode !== 'multiple-samples'
+    ">
+    <div class="rightSideButtons">
+      <button
+        (click)="clickToggle(false)"
+        mat-fab
+        extended
+        color="primary"
+        [ngClass]="{ active: !toggleCarouselViewer }">
+        <i class="fa-regular fa-images"></i>
+        {{ 'BUTTONS.GALLERY' | translate }}
+      </button>
+
+      <button
+        (click)="clickToggle(true)"
+        mat-fab
+        extended
+        color="primary"
+        [ngClass]="{ active: toggleCarouselViewer }">
+        <i class="fa-solid fa-cube"></i>
+        {{ 'BUTTONS.3DVIEWER' | translate }}
+      </button>
+    </div>
+    <div class="crVwWrapper">
+      <app-carousel
+        *ngIf="!toggleCarouselViewer"
+        [bones]="bones_imgs"></app-carousel>
+      <app-viewer *ngIf="toggleCarouselViewer" [modelURL]="model"></app-viewer>
+    </div>
+  </div>
+</div>
+
+<div
+  class="atlas"
+  *ngIf="showAtlas"
+  [ngClass]="{ openAtlas: atlasOpened, closeAtlas: !atlasOpened }">
+  <button class="closeAtlasButton" (click)="closeAtlas()">
+    <i class="fa-solid fa-times"></i>
+  </button>
+  <div
+    class="elementAtlas"
+    [ngClass]="{ full: control.img3 && control.img4 }"
+    *ngFor="let control of atlastToShow">
+    <div class="infoAtlasLabel">
+      <span class="titleLabel">{{ control.label }}</span>
+      <span class="descriptionAtlas">{{ control.description }}</span>
+    </div>
+    <div class="imgsAtlas">
+      <img src="{{ control.img1 }}" alt="img1" />
+      <img src="{{ control.img2 }}" alt="img2" />
+      <img *ngIf="control.img3" [src]="control.img3" alt="img3" />
+      <img *ngIf="control.img4" [src]="control.img4" alt="img4" />
+    </div>
+  </div>
+</div>
+
+<div class="score-modal" *ngIf="showScoreModal">
+  <div class="modal-backdrop"></div>
+  <div class="score-content">
+    <h2>{{ 'TRAINING.COMPLETED' | translate }}</h2>
+    <div class="score-percentage">{{ score }}%</div>
+
+    <div class="stars">
+      <i class="fa fa-star" [ngClass]="{ active: score >= 30 }"></i>
+      <i class="fa fa-star" [ngClass]="{ active: score >= 60 }"></i>
+      <i class="fa fa-star" [ngClass]="{ active: score >= 85 }"></i>
+    </div>
+
+    <button
+      mat-button
+      color="primary"
+      class="close-btn"
+      (click)="closeScoreModal()">
+      {{ 'BUTTONS.CLOSE' | translate }}
+    </button>
+  </div>
+</div>

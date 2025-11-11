@@ -1,0 +1,75 @@
+
+.page-container {
+  display: flex;
+  place-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(180deg, #2B2577, #000000);
+}
+.pubis-info {
+  max-width: 800px;
+  flex-grow: 1;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #2B2577; 
+  }
+
+  .info-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+    padding: 10px 15px;
+    border-bottom: 1px solid #e0e0e0;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    .label {
+      font-weight: 500;
+      font-size: 1.1rem;
+      color: #2B2577; 
+      width: 40%;
+      text-align: left;
+    }
+
+    .value {
+      font-size: 1.1rem;
+      color: #c30058; 
+      text-align: right;
+      font-weight: 400;
+      width: 60%;
+    }
+  }
+
+  // Agregar filas alternas
+  .info-item:nth-child(odd) {
+    background-color: #f0f4f8; 
+  }
+
+  .info-item:nth-child(even) {
+    background-color: #ffffff; 
+  }
+
+}
+
+.pubis-info {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0.5s ease-in-out;
+
+  &.loaded {
+    opacity: 1;
+    visibility: visible;
+  }
+}

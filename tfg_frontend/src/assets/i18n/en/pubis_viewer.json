@@ -1,0 +1,42 @@
+{
+  "PUBIS_ID": "Pubis ID",
+  "PUBIS_SEX": "Sex",
+  "ERROR_OUTLINE": "Please complete all required fields before saving.",
+  "TRAINING": {
+    "COMPLETED": "Training Completed"
+  },
+  "PUBIS": {
+    "AURICULAR_FACE": "Auricular face",
+    "RIDGES_AND_GROOVES": "Ridges and grooves",
+    "REGULAR_POROSITY": "Regular porosity",
+    "GROOVES_SHALLOW": "Grooves shallow",
+    "GROOVES_REMAINS": "Grooves remains",
+    "NO_GROOVES": "No grooves",
+    "IRREGULAR_POROSITY": "Irregular porosity",
+    "ABSENCE": "Absence",
+    "MEDIUM": "Medium",
+    "MUCH": "Much",
+    "UPPER_SYMPHYSIAL_EXTREMITY": "Upper symphysial extremity",
+    "DEFINITION": "Definition",
+    "NOT_DEFINED": "Not specified",
+    "DEFINED": "Defined",
+    "BONY_NODULE": "Bony nodule",
+    "ABSENT": "Absent",
+    "PRESENT": "Present",
+    "LOWER_SYMPHYSIAL_EXTREMITY": "Lower symphysial extremity",
+    "DORSAL_GROOVE": "Dorsal groove",
+    "DORSAL_MARGIN": "Dorsal margin",
+    "CLOSED": "Closed",
+    "DORSAL_PLATEAU": "Dorsal plateau",
+    "VENTRAL_MARGIN": "Ventral margin",
+    "VENTRAL_BEVEL": "Ventral bevel",
+    "IN_PROCESS": "In process",
+    "PARTIALLY_FORMED": "Partially formed",
+    "FORMED_WITHOUT_RAREFACTIONS": "Ventral edge formed without excrescences",
+    "FORMED_WITH_FEW_RAREFACTIONS": "Ventral edge formed with few excrescences",
+    "FORMED_WITH_LOT_RECESSES_AND_PROTRUSIONS": "Ventral edge formed with many excrescences",
+    "OBSERVATIONS": "Observations",
+    "ESTIMATED_BY_PRACTITIONER": "Estimated by Practitioner",
+    "TODD_PHASE": "Todd's Phase"
+  }
+}

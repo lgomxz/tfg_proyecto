@@ -1,0 +1,84 @@
+::ng-deep #sidebarContainer {
+  width: 25% !important;
+}
+
+::ng-deep #outlineView{
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #00B2A9;
+  }
+}
+
+::ng-deep #toolbarViewer {
+    min-height: 50px !important;
+}
+
+::ng-deep #viewerContainer {
+  left: 25% !important;
+  width: 75% !important;
+
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #00B2A9;
+  }
+
+  &::-webkit-scrollbar:horizontal {
+    height: 5px;
+  }
+
+  &::-webkit-scrollbar-track:horizontal {
+    background: #f1f1f1;
+  }
+
+  &::-webkit-scrollbar-thumb:horizontal {
+    background: #00B2A9;
+  }
+}
+
+::ng-deep .toolbarButton:hover{
+  svg {
+     color: #00B2A9;
+  } 
+}
+
+::ng-deep #viewThumbnail { 
+  display: none;
+}
+
+button{
+  ::ng-deep span{
+    margin-right: 10px;
+  }
+}
+
+
+.buttonsPdfViewer {
+  position: absolute;
+  padding-inline: 2rem;
+  align-items: center;
+  height: 50px;
+  right: 5px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  z-index: 1;
+
+  ::ng-deep button span {
+    margin: 0;
+  }
+}
+

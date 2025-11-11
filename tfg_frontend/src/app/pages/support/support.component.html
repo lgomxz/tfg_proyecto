@@ -1,0 +1,54 @@
+<div class="body">
+  <div class="leftSide">
+    <h3>{{ 'CONTACT_SUPPORT' | translate }}</h3>
+    <p>
+      {{ 'INTRO_TEXT' | translate }}
+    </p>
+    <p>
+      <strong>{{ 'REVIEW_DOC' | translate }}</strong>
+      {{ 'DOC_DETAIL' | translate }}
+    </p>
+    <p>
+      <strong>{{ 'SUPPORT_FORM' | translate }}</strong>
+      {{ 'FORM_DETAIL' | translate }}
+    </p>
+    <p>
+      <i class="fa-regular fa-thumbs-up"></i>
+      {{ 'EXPERIENCE_IMPORTANCE' | translate }}
+    </p>
+  </div>
+  <div class="rightSide">
+    <div class="helpForm">
+      <div class="emailHelp">
+        <input
+          id="disabled-input"
+          type="text"
+          pInputText
+          [disabled]="true"
+          [(ngModel)]="emailHelp" />
+      </div>
+      <div class="subjectHelp">
+        <label for="subject">{{ 'SUBJECT' | translate }}</label>
+        <input
+          pInputText
+          id="subject"
+          aria-describedby="subject-help"
+          [(ngModel)]="subjectHelp" />
+      </div>
+      <div class="textAreaHelp">
+        <label>{{ 'DESCRIPTION_LABEL' | translate }}</label>
+        <textarea
+          rows="8"
+          cols="30"
+          pInputTextarea
+          [(ngModel)]="textAreaHelp"
+          [autoResize]="false"></textarea>
+      </div>
+      <div class="sendButton">
+        <button (click)="sendEmail()" color="primary" mat-fab extended>
+          {{ 'SEND_BUTTON' | translate }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

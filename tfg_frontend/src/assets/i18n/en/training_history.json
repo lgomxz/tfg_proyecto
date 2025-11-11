@@ -1,0 +1,7 @@
+{
+  "TITLE": "Training History",
+  "MAIN_TEXT": "The chart shows how your score has evolved compared to expert labeling.It does not mean that your answers are incorrect, but rather that most experts have evaluated differently. Each point on the chart represents an evaluation based on the standards established by the experts.",
+  "DATE": "Date",
+  "SCORE": "Score",
+  "NO_HISTORY": "No training history available yet."
+}

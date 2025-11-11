@@ -1,0 +1,20 @@
+{
+  "FORM": {
+    "PERSONAL_DATA": "Información personal",
+    "NAME": "Nombre",
+    "LASTNAME": "Apellidos",
+    "EMAIL": "Email",
+    "SUMMARY": "Resumen profesional"
+  },
+  "PASSWORD": {
+    "CONFIGURATION": "Configuración de contraseñas",
+    "PASSWORD": "Contraseña",
+    "REPEAT_PASSWORD": "Repetir contraseña"
+  },
+  "ROLES": {
+    "NOVICE": "Novato",
+    "INTERMEDIATE": "Intermedio",
+    "EXPERT": "Experto",
+    "ADMIN": "Administrador"
+  }
+}

@@ -1,0 +1,65 @@
+<div *ngIf="showMainContent" class="body">
+  <div class="utilityContainer">
+    <input
+      type="text"
+      [(ngModel)]="searchTerm"
+      placeholder="Search..."
+      class="search-input" />
+    <div class="adminButtons">
+      <button
+        *ngIf="showAdminButtons"
+        class="newCollectionButton"
+        mat-raised-button
+        color="accent"
+        (click)="showDialog('new')">
+        {{ 'BUTTONS.NEW' | translate }}
+      </button>
+      <app-new-dialog
+        class="newPubis"
+        [visible]="showNewSampleDialog"
+        (visibleChange)="showNewSampleDialog = $event"
+        [formConfig]="newDialogConfig"
+        (radioChange)="onRadioButtonChange($event)"
+        [existingFiles]="existingFiles"
+        (acceptForm)="accept($event)">
+      </app-new-dialog>
+      <app-new-dialog
+        [(visible)]="showDeleteSampleDialog"
+        [formConfig]="deleteDialogConfig"></app-new-dialog>
+    </div>
+  </div>
+
+  <p-dialog
+    [(visible)]="showInfoDialog"
+    header="Processing Pubis Upload"
+    modal="modal"
+    [closable]="true"
+    [dismissableMask]="true">
+    <p>
+      Adding a pubis may take some time. You can continue working while the
+      upload happens in the background.
+    </p>
+    <p-footer>
+      <p-button
+        type="button"
+        (click)="closeInfoDialog()"
+        label="Close"
+        icon="pi pi-times"></p-button>
+    </p-footer>
+  </p-dialog>
+
+  <!-- Tabla que muestra los datos -->
+  <div class="tableContainer">
+    <!-- Tabla para "My samples" -->
+    <app-table
+      [tableData]="filteredPubis"
+      [tableConfig]="collectionsColumns"
+      [showActions]="showAdminButtons"
+      (doubleClick)="openPubis($event)"
+      (selectedRow)="selectRow($event)"
+      (delete)="onDeleteRow($event)"
+      (edit)="onEditRow($event)">
+    </app-table>
+  </div>
+</div>
+<router-outlet></router-outlet>

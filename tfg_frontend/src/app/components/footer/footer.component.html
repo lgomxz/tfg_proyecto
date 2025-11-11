@@ -1,0 +1,21 @@
+<!-- *ngIf="isLoggedIn$ | async" -->
+<div class="footerContent" *ngIf="showFooter$ | async">
+  <div class="imgContent">
+    <img src="../../../assets/img/ugr.png" alt="Logo UGR" />
+  </div>
+  <div class="legalContent">
+    <a href="/legal/privacy-policy" class="footer-link">{{
+      'FOOTER.PRIVACY_POLICY' | translate
+    }}</a>
+    <div class="separator"></div>
+    <a href="/legal/cookies-policy" class="footer-link">{{
+      'FOOTER.COOKIES_POLICY' | translate
+    }}</a>
+    <div class="separator"></div>
+    <a href="/legal/legal-notice" class="footer-link">{{
+      'FOOTER.LEGAL_NOTICE' | translate
+    }}</a>
+    <div class="separator"></div>
+    <a href="/support" class="footer-link">{{ 'NAV.CONTACT' | translate }}</a>
+  </div>
+</div>

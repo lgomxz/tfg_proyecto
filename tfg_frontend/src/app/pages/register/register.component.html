@@ -1,0 +1,44 @@
+<div class="loginBackground">
+  <div class="particlesBackground">
+    <ngx-particles [id]="id" [options]="particlesOptions"></ngx-particles>
+  </div>
+  <div class="registerCard">
+    <div class="topText">
+      <h1>Get started!</h1>
+      <div class="textInfo">
+        <span class="info">Please fill out the following form.</span>
+        <span class="info">Already have an account?</span>
+        <span class="hoverLink" routerLink="/login">Log in</span>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <app-form
+      [formConfig]="formConfig"
+      [form]="form"
+      [formSubmitted]="formSubmitted">
+    </app-form>
+    <div [formGroup]="form">
+      <div class="privacyPolicyCheck">
+        <p-checkbox
+          formControlName="privacyPolicy"
+          binary="true"
+          [ngClass]="{
+            error: form.get('privacyPolicy')?.invalid && formSubmitted,
+          }">
+        </p-checkbox>
+        <span
+          >I've read and accept the
+          <span class="hoverLink">Terms and Conditions of use</span>
+          <span class="required">*</span></span
+        >
+      </div>
+    </div>
+    <div class="buttonsSignUp">
+      <button mat-raised-button color="accent" (click)="signUp()">
+        Sign Up
+      </button>
+    </div>
+  </div>
+</div>

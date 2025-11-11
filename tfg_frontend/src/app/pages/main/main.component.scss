@@ -1,0 +1,59 @@
+.body {
+  width: 100%;
+  height: 100%;
+  padding-inline: 50px;
+  padding-block: 10px;
+
+  .utilityContanier {
+    display: flex;
+    justify-content: space-between;
+    .adminButtons{
+      display: flex;
+      justify-content: end;
+      align-items: center;
+      flex-grow: 1;
+      
+      button{
+        z-index: 0;
+      }
+      .newCollectionButton{
+        margin-right: 20px;
+      }
+    }
+  }
+
+  .search-input {
+    width: 50% !important;
+    padding: 0.6rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    transition: border-color 0.2s ease;
+    margin-block: 1rem;
+    width: 70%;
+    &:focus {
+      outline: none;
+      border-color: #888;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .actionButtons button {
+      width: 35px !important;
+      height: 35px  !important;
+      padding: 0  !important;
+      border-radius: 50%  !important;
+
+      .button-text {
+        display: none !important;
+      }
+
+      .button-icon {
+        display: flex !important;
+        font-size: large !important;
+        justify-content: center !important;
+        align-items: center !important;
+      }
+    }
+  }
+}

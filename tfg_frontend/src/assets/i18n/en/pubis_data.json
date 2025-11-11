@@ -1,0 +1,22 @@
+{
+  "PUBIS_INFO": {
+    "TITLE": "Pubis Information",
+    "PUBIS_CODE": "Pubis Code",
+    "SEX": "Sex",
+    "YEAR_OF_ACQUISITION": "Year of Pubis Acquisition",
+    "BODY_BUILD": "Body Build",
+    "JUDGED": "Judged",
+    "DEATH_CAUSE": "Death Cause",
+    "TOXICOLOGICAL_REPORT": "Toxicological Report",
+    "STATE_OF_PRESERVATION": "State of Preservation",
+    "PRELIMINARY_PROCEEDINGS": "Preliminary Proceedings"
+  },
+  "SEX_VALUES": {
+    "MALE": "Male",
+    "FEMALE": "Female"
+  },
+  "JUDGED_VALUES": {
+    "YES": "Yes",
+    "NO": "No"
+  }
+}

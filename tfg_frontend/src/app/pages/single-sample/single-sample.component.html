@@ -1,0 +1,85 @@
+<div class="body">
+  <div class="leftSide">
+    <div class="header">
+      <button
+        *ngIf="currentView === 'pubis'"
+        class="back-button"
+        mat-raised-button
+        color="accent"
+        (click)="goBack()">
+        <i class="fas fa-arrow-left"></i>
+        {{ 'BUTTONS.BACK' | translate }}
+      </button>
+
+      <h2>
+        {{
+          currentView === 'collections'
+            ? ('HEADER.COLLECTIONS' | translate)
+            : selectedCollection?.name || ''
+        }}
+      </h2>
+    </div>
+
+    <app-table
+      class="tableData"
+      [tableData]="tableData"
+      [tableConfig]="tableConfig"
+      (doubleClick)="currentView === 'collections' ? openPubis($event) : null"
+      (selectedRow)="handleSelected($event)">
+    </app-table>
+  </div>
+
+  <div class="rightSide">
+    <div *ngIf="!selectedRow" class="no-selection-message">
+      {{ 'RIGHT_PANEL.NO_SELECTION' | translate }}
+    </div>
+
+    <div class="right-panel" *ngIf="selectedRow">
+      <div>
+        <div class="phasePrediction">
+          <div class="analyzeButton">
+            <button
+              class="analyze-button"
+              mat-raised-button
+              color="primary"
+              (click)="analyze()">
+              {{ 'BUTTONS.ANALYZE' | translate }}
+            </button>
+          </div>
+
+          <div *ngIf="prediction !== null" class="todd-phase-result">
+            <span class="label">{{
+              'RIGHT_PANEL.TODDS_PHASE' | translate
+            }}</span>
+            <span class="value">{{ prediction }}</span>
+
+            <span
+              class="estimated-age-label"
+              #estimatedAgeLabel
+              (mouseenter)="showTooltip()"
+              (mouseleave)="hideTooltip()">
+              | {{ 'RIGHT_PANEL.ESTIMATED_AGE' | translate }}
+            </span>
+
+            <span class="value"> {{ estimatedAge }}</span>
+          </div>
+        </div>
+
+        <div [ngClass]="{ 'loading-container': true, active: isAnalyzing }">
+          <span *ngIf="isAnalyzing" class="loading-text">
+            {{ 'RIGHT_PANEL.ANALYZING' | translate }}
+          </span>
+          <mat-progress-bar
+            *ngIf="isAnalyzing"
+            mode="indeterminate"
+            color="accent"></mat-progress-bar>
+        </div>
+      </div>
+
+      <app-pubis-viewer
+        class="force-responsive"
+        [label]="selectedLabel"
+        [shortId]="selectedRow.pubisShortId"></app-pubis-viewer>
+    </div>
+  </div>
+</div>

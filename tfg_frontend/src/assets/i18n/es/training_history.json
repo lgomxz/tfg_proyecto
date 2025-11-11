@@ -1,0 +1,7 @@
+{
+  "TITLE": "Historial de Entrenamiento",
+  "MAIN_TEXT": "El gráfico muestra cómo ha evolucionado tu puntuación en comparación con el etiquetado experto. No significa que las respuestas que has dado estén incorrectas, sino que la mayoría de los expertos han evaluado de manera diferente. Cada punto en la gráfica representa una evaluación basada en los estándares establecidos por los expertos.",
+  "DATE": "Fecha",
+  "SCORE": "Puntuación",
+  "NO_HISTORY": "Aún no hay historial de entrenamiento disponible."
+}

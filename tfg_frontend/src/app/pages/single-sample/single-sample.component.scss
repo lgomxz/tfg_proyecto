@@ -1,0 +1,156 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  height: 100%;
+  min-height: 0;
+  background-color: #f8f9fa;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.body {
+  display: flex;
+  flex-grow: 1;
+  height: 100%;
+  gap: 2rem;
+
+  .leftSide,
+  .rightSide {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    overflow: auto;
+  }
+  .leftSide{
+    .header{
+      padding-inline: 1rem;
+    }
+    .tableData{
+      margin-top: 2rem;
+    }
+  }
+
+  .rightSide{
+    
+    .phasePrediction{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+            
+      .todd-phase-result {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background-color: #e0f7f6;
+        padding: 0.6rem 1rem;
+        border-radius: 8px;
+        font-weight: 500;
+        font-size: 1rem;
+        color: #007e7a;
+        border: 1px solid #99ded9;
+
+        .estimated-age-label {
+          cursor: pointer;
+        }
+
+        .label {
+          color: #00b2a9;
+          font-weight: 600;
+        }
+
+        .value {
+          background-color: #b2e6e3;
+          color: #007e7a;
+          font-weight: 700;
+          padding: 0.2rem 0.6rem;
+          border-radius: 6px;
+        }
+      }
+    }
+    
+    .analyze-button{
+      z-index: 0;
+    }
+    .loading-container {
+      min-height: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      visibility: hidden;
+
+      &.active {
+        visibility: visible;
+      }
+    }
+
+    .loading-text {
+      display: block;
+      font-weight: 500;
+      font-size: 14px;
+      margin-top: 4px;
+      margin-bottom: 8px;
+      color: #555;
+    }
+
+  }
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 0.5rem;
+
+    h2 {
+      margin: 0;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: #343a40;
+    }
+  }
+
+  .back-button {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+
+    i {
+      font-size: 1rem;
+    }
+  }
+
+
+  .no-selection-message {
+    text-align: center;
+    color: #00b2a9;
+    font-size: 1rem;
+    margin: auto;
+    background-color: rgba(0, 178, 169, 0.07);
+    padding: 1rem;
+    border: 1px solid #00b2a9;
+    border-radius: 6px;
+    width: 100%;
+    max-width: 90%;
+  }
+
+  ng-container {
+    font-size: 1rem;
+    color: #495057;
+
+    p {
+      margin: 0.5rem 0;
+    }
+  }
+}
+
+
+

@@ -1,0 +1,300 @@
+<div class="experiments-body">
+  <app-spinner-loader *ngIf="isLoading"></app-spinner-loader>
+  <!-- Wizard  -->
+  <app-wizard-stepper
+    #stepper
+    *ngIf="!showFinalTable"
+    [steps]="stepsData"
+    (finish)="handleFinish()"
+    [selectedOption]="selectedOption ?? selectedAgeOption"
+    (selectionChange)="onSelectionChange($event)"
+    (activeStepChange)="onStepChanged($event)"
+    [selectedLabels]="selectedLabels">
+  </app-wizard-stepper>
+
+  <ng-template #optionTemplate>
+    <div class="option-step">
+      <div class="card-options">
+        <div
+          class="option-card"
+          [class.selected]="selectedOption === 'features'"
+          (click)="onOptionSelect('features')">
+          <p class="title">{{ 'TITLES.FEATURES' | translate }}</p>
+          <p class="description">{{ 'DESCRIPTIONS.FEATURES' | translate }}</p>
+        </div>
+
+        <div
+          class="option-card"
+          [class.selected]="selectedOption === 'age'"
+          (click)="onOptionSelect('age')">
+          <p class="title">{{ 'TITLES.AGE' | translate }}</p>
+          <p class="description">{{ 'DESCRIPTIONS.AGE' | translate }}</p>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+
+  <ng-template #ageSubOptionsTemplate>
+    <div class="option-step">
+      <div class="card-options sub-options">
+        <div
+          class="option-card"
+          [class.selected]="selectedAgeOption === 'phase'"
+          (click)="onAgeOptionSelect('phase')">
+          <p class="title">{{ 'TITLES.PHASE' | translate }}</p>
+          <p class="description">{{ 'DESCRIPTIONS.PHASE' | translate }}</p>
+        </div>
+
+        <div
+          class="option-card"
+          [class.selected]="selectedAgeOption === 'numeric'"
+          (click)="onAgeOptionSelect('numeric')">
+          <p class="title">{{ 'TITLES.NUMERIC_AGE' | translate }}</p>
+          <p class="description">
+            {{ 'DESCRIPTIONS.NUMERIC_AGE' | translate }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+
+  <ng-template #filterTemplate>
+    <div class="filter-step">
+      <label class="filter-label">{{
+        'TITLES.FILTER_LABELS' | translate
+      }}</label>
+      <div class="filter-pill-group">
+        <button
+          class="filter-pill"
+          [class.active]="filterType === 'all'"
+          (click)="onFilterChange('all')"
+          type="button">
+          {{ 'FILTERS.ALL' | translate }}
+        </button>
+        <button
+          class="filter-pill"
+          [class.active]="filterType === 'intra'"
+          (click)="onFilterChange('intra')"
+          type="button">
+          {{ 'FILTERS.INTRAOBSERVER' | translate }}
+        </button>
+        <button
+          class="filter-pill"
+          [class.active]="filterType === 'inter'"
+          (click)="onFilterChange('inter')"
+          type="button">
+          {{ 'FILTERS.INTEROBSERVER' | translate }}
+        </button>
+      </div>
+
+      <app-table
+        [tableData]="filteredLabels"
+        [tableConfig]="labelsTableConfig"
+        [showActions]="false"
+        [hasCheckboxColumn]="true"
+        [selectedRows]="selectedLabels"
+        (selectedRowsChange)="onLabelSelectionChange($event)">
+      </app-table>
+    </div>
+  </ng-template>
+</div>
+
+<div
+  *ngIf="showFinalTable && selectedOption === 'features'"
+  class="results-table">
+  <h3>
+    {{ 'TITLES.RESULTS_OF' | translate }}
+    {{
+      analysisType === 'intra'
+        ? ('TITLES.INTRAOBSERVER_ANALYSIS' | translate)
+        : ('TITLES.INTEROBSERVER_ANALYSIS' | translate)
+    }}
+  </h3>
+  <app-table
+    [tableData]="finalResultsTableData"
+    [tableConfig]="tableColumns"
+    [showActions]="false"
+    [hasCheckboxColumn]="false"
+    [isFlatTable]="true"
+    [colorRules]="{
+      matchPercentage: { red: 50, green: 70 },
+      kappa: { red: 0.4, green: 0.6 },
+    }">
+  </app-table>
+</div>
+
+<!--  Confusion Matrix y comparación -->
+<p-tabView
+  *ngIf="!isLoading && showFinalTable && selectedAgeOption === 'phase'">
+  <p-tabPanel
+    header="{{ 'TITLES.CONFUSION_MATRIX' | translate }}"
+    *ngIf="confusionMatrixData">
+    <div class="confusion-matrix-container card">
+      <h3>{{ 'TITLES.CONFUSION_MATRIX_ACTUAL_VS_PREDICTED' | translate }}</h3>
+      <table class="confusion-matrix-table">
+        <thead>
+          <tr>
+            <th>{{ 'TITLES.ACTUAL_PREDICTED' | translate }}</th>
+            <th *ngFor="let phase of confusionMatrixData.phases">
+              {{ phase }}
+            </th>
+            <th>{{ 'TITLES.TOTAL' | translate }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let phase of confusionMatrixData.phases; let i = index">
+            <td class="phase-label">{{ phase }}</td>
+            <td
+              *ngFor="let val of confusionMatrixData.matrix[i]; let j = index"
+              [class.correct]="i === j">
+              {{ val }}
+            </td>
+            <td>
+              <strong>{{ confusionMatrixData.rowTotals[i] }}</strong>
+            </td>
+          </tr>
+
+          <tr class="totals-row">
+            <td>
+              <strong>{{ 'TITLES.TOTAL' | translate }}</strong>
+            </td>
+            <td *ngFor="let total of confusionMatrixData.colTotals">
+              <strong>{{ total }}</strong>
+            </td>
+            <td>
+              <strong>{{ confusionMatrixData.grandTotal }}</strong>
+            </td>
+          </tr>
+
+          <tr class="precision-row">
+            <td>
+              <strong>{{ 'TITLES.PRECISION' | translate }} (%)</strong>
+            </td>
+            <td *ngFor="let p of confusionMatrixData.accuracyPerPhase">
+              {{ p * 100 | number: '1.0-2' }}%
+            </td>
+            <td></td>
+          </tr>
+
+          <tr class="recall-row">
+            <td>
+              <strong>{{ 'TITLES.RECALL' | translate }} (%)</strong>
+            </td>
+            <td *ngFor="let r of confusionMatrixData.recallPerPhase">
+              {{ r * 100 | number: '1.0-2' }}%
+            </td>
+            <td></td>
+          </tr>
+
+          <tr class="accuracy-row">
+            <td>
+              <strong>{{ 'TITLES.OVERALL_ACCURACY' | translate }} (%)</strong>
+            </td>
+            <td [attr.colspan]="confusionMatrixData.phases.length + 1">
+              {{ confusionMatrixData.overallAccuracy * 100 | number: '1.0-2' }}%
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </p-tabPanel>
+
+  <p-tabPanel
+    header="{{ 'TITLES.PREDICTION_COMPARISON' | translate }}"
+    *ngIf="comparisonData?.length">
+    <div class="comparison-table-container card">
+      <h3>{{ 'TITLES.PREDICTION_COMPARISON' | translate }}</h3>
+      <app-table
+        *ngIf="!isLoading"
+        [tableData]="comparisonData"
+        [tableConfig]="comparisonTableConfig"
+        [showActions]="false"
+        [hasCheckboxColumn]="false">
+      </app-table>
+    </div>
+  </p-tabPanel>
+
+  <p-tabPanel
+    header="{{ 'TITLES.SCATTER' | translate }}"
+    *ngIf="comparisonData?.length && selectedAgeOption === 'phase'">
+    <div class="scatter-chart-container">
+      <p-chart
+        type="scatter"
+        [data]="preparePhaseScatterData()"
+        [options]="scatterOptions"></p-chart>
+    </div>
+  </p-tabPanel>
+</p-tabView>
+
+<p-tabView *ngIf="showFinalTable && selectedAgeOption === 'numeric'">
+  <p-tabPanel header="{{ 'TITLES.IA_VS_REAL' | translate }}">
+    <div *ngIf="!isLoading" class="comparison-table-container card">
+      <h3>{{ 'TITLES.PREDICTION_ERROR_IA_REAL' | translate }}</h3>
+      <table class="mat-mdc-table">
+        <thead>
+          <tr>
+            <th>{{ 'TITLES.MAE' | translate }}</th>
+            <th>{{ 'TITLES.MIN_ERROR' | translate }}</th>
+            <th>{{ 'TITLES.MAX_ERROR' | translate }}</th>
+            <th>{{ 'TITLES.MSE' | translate }}</th>
+            <th>{{ 'TITLES.STD_DEV' | translate }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{ errorMetrics.iaVsReal?.mae | number: '1.2-2' }}</td>
+            <td>{{ errorMetrics.iaVsReal?.minError | number: '1.2-2' }}</td>
+            <td>{{ errorMetrics.iaVsReal?.maxError | number: '1.2-2' }}</td>
+            <td>{{ errorMetrics.iaVsReal?.mse | number: '1.2-2' }}</td>
+            <td>{{ errorMetrics.iaVsReal?.stdDev | number: '1.2-2' }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </p-tabPanel>
+
+  <p-tabPanel header="{{ 'TITLES.PRACTITIONER_VS_REAL' | translate }}">
+    <div *ngIf="!isLoading" class="comparison-table-container card">
+      <h3>{{ 'TITLES.PREDICTION_ERROR_PRACTITIONER_REAL' | translate }}</h3>
+      <table class="mat-mdc-table">
+        <thead>
+          <tr>
+            <th>{{ 'TITLES.MAE' | translate }}</th>
+            <th>{{ 'TITLES.MIN_ERROR' | translate }}</th>
+            <th>{{ 'TITLES.MAX_ERROR' | translate }}</th>
+            <th>{{ 'TITLES.MSE' | translate }}</th>
+            <th>{{ 'TITLES.STD_DEV' | translate }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              {{ errorMetrics.practitionerVsReal?.mae | number: '1.2-2' }}
+            </td>
+            <td>
+              {{ errorMetrics.practitionerVsReal?.minError | number: '1.2-2' }}
+            </td>
+            <td>
+              {{ errorMetrics.practitionerVsReal?.maxError | number: '1.2-2' }}
+            </td>
+            <td>
+              {{ errorMetrics.practitionerVsReal?.mse | number: '1.2-2' }}
+            </td>
+            <td>
+              {{ errorMetrics.practitionerVsReal?.stdDev | number: '1.2-2' }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </p-tabPanel>
+  <p-tabPanel header="{{ 'TITLES.SCATTER' | translate }}">
+    <div class="scatter-chart-container">
+      <p-chart
+        type="scatter"
+        [data]="prepareAgeScatterData()"
+        [options]="scatterOptions">
+      </p-chart>
+    </div>
+  </p-tabPanel>
+</p-tabView>

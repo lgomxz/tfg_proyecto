@@ -1,0 +1,207 @@
+<div class="navBar" *ngIf="showNavbar$ | async">
+  <div class="iconMenu hideOnPC" (click)="toggleSidemenu()">
+    <i class="fa-solid fa-bars"></i>
+  </div>
+  <div class="imageLogo">
+    <img src="../../../assets/img/image.png" alt="logo" />
+  </div>
+  <div class="separator"></div>
+  <nav class="navWrapper stroke">
+    <ul class="navLinks">
+      <li [ngClass]="{ active: isActive('') }" class="hideOnMobile">
+        <a routerLink="">{{ 'NAV.COLLECTIONS' | translate }}</a>
+      </li>
+      <li
+        [ngClass]="{ active: isActive('/training-tool') }"
+        class="hideOnMobile">
+        <a routerLink="/training-tool">{{ 'NAV.TRAINING_TOOL' | translate }}</a>
+      </li>
+      <li
+        [ngClass]="{ active: isActive('/estimate-ai') }"
+        class="hideOnMobile dropdown">
+        <button class="dropbtn">
+          <a>{{ 'NAV.AI_ESTIMATION' | translate }}</a>
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a routerLink="/estimate-ai/single-sample">{{
+            'NAV.SINGLE_SAMPLE' | translate
+          }}</a>
+          <a routerLink="/estimate-ai/multiple-samples">{{
+            'NAV.MULTIPLE_SAMPLES' | translate
+          }}</a>
+        </div>
+      </li>
+      <li [ngClass]="{ active: isActive('/experiments') }" class="hideOnMobile">
+        <a routerLink="/experiments">{{ 'NAV.EXPERIMENTS' | translate }}</a>
+      </li>
+      <li
+        [ngClass]="{ active: isActive('/documentation') }"
+        class="hideOnMobile">
+        <a routerLink="/documentation">{{ 'NAV.DOCUMENTATION' | translate }}</a>
+      </li>
+    </ul>
+  </nav>
+  <div class="separator hideOnMobile"></div>
+  <div class="languageCard hideOnMobile">
+    <p-dropdown
+      [options]="languages"
+      [(ngModel)]="selectedLanguage"
+      (onChange)="onCountryChange($event)"
+      [showClear]="false"
+      [placeholder]="''">
+      <ng-template pTemplate="selectedItem">
+        <div class="flex align-items-center gap-2" *ngIf="selectedLanguage">
+          <img
+            [src]="getFlagUrl(selectedLanguage.code)"
+            [alt]="selectedLanguage.name + ' flag'"
+            style="width: 24px" />
+        </div>
+      </ng-template>
+      <ng-template let-country pTemplate="item">
+        <div class="flex align-items-center gap-2">
+          <img
+            [src]="getFlagUrl(country.code)"
+            [alt]="country.name + ' flag'"
+            style="width: 24px" />
+        </div>
+      </ng-template>
+    </p-dropdown>
+  </div>
+  <div class="userProfile hideOnMobile">
+    <div class="userInfo" (click)="toggleUserMenu()">
+      <img src="{{ imageUrl }}" alt="Profile photo" />
+
+      <i class="fa-solid fa-chevron-down"></i>
+    </div>
+    <div class="userInfoWrap" [ngClass]="{ 'open-menu': userMenuOpened }">
+      <div class="subMenu">
+        <a routerLink="/profile" class="subMenuLink" (click)="closeUserMenu()">
+          <i class="fa-solid fa-user"></i>
+          <p>{{ 'NAV.PROFILE' | translate }}</p>
+        </a>
+        <a
+          *ngIf="showAdminButtons"
+          routerLink="/users-center"
+          (click)="closeUserMenu()"
+          class="subMenuLink">
+          <i class="fa-solid fa-users"></i>
+          <p>{{ 'NAV.USERS' | translate }}</p>
+        </a>
+        <a
+          routerLink="/training-history"
+          class="subMenuLink"
+          (click)="closeUserMenu()">
+          <i class="fa-solid fa-chart-line"></i>
+          <p>Training history</p>
+        </a>
+        <hr />
+        <a href="#" class="subMenuLinkLogout" (click)="logout()">
+          <i class="fa-solid fa-right-from-bracket"></i>
+          <p>{{ 'NAV.LOGOUT' | translate }}</p>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Sidebar (Mobile only) -->
+<nav
+  class="sidebarMenu hideOnPC"
+  *ngIf="showMenu"
+  [ngClass]="{ openMenu: menuOpened, closeMenu: !menuOpened }">
+  <div class="sidebarContent">
+    <!-- Perfil / Cabecera -->
+    <div class="userHeader">
+      <p-avatar
+        image="https://primefaces.org/cdn/primeng/images/demo/avatar/asiyajavayant.png"
+        styleClass="mr-2"
+        size="large"
+        shape="circle" />
+      <div class="userName">{{ 'NAV.PROFILE' | translate }}</div>
+    </div>
+
+    <!-- Navegación principal -->
+    <ul class="navSection">
+      <li [ngClass]="{ active: isActive('') }">
+        <a routerLink="">{{ 'NAV.COLLECTIONS' | translate }}</a>
+      </li>
+
+      <li [ngClass]="{ active: isActive('/training-tool') }">
+        <a routerLink="/training-tool">{{ 'NAV.TRAINING_TOOL' | translate }}</a>
+      </li>
+
+      <div class="sectionAI">
+        <li class="sectionTitle">ESTIMACIÓN IA</li>
+
+        <li [ngClass]="{ active: isActive('/estimate-ai/simple-sample') }">
+          <a routerLink="/estimate-ai/simple-sample">
+            {{ 'NAV.SINGLE_SAMPLE' | translate }}
+          </a>
+        </li>
+
+        <li [ngClass]="{ active: isActive('/estimate-ai/multiple-samples') }">
+          <a routerLink="/estimate-ai/multiple-samples">
+            {{ 'NAV.MULTIPLE_SAMPLES' | translate }}
+          </a>
+        </li>
+      </div>
+
+      <li [ngClass]="{ active: isActive('/experiments') }">
+        <a routerLink="/experiments">{{ 'NAV.EXPERIMENTS' | translate }}</a>
+      </li>
+
+      <li [ngClass]="{ active: isActive('/documentation') }">
+        <a routerLink="/documentation">{{ 'NAV.DOCUMENTATION' | translate }}</a>
+      </li>
+    </ul>
+
+    <hr />
+
+    <!-- Idioma -->
+    <div class="languageSelector">
+      <p-dropdown
+        [options]="languages"
+        [(ngModel)]="selectedLanguage"
+        (onChange)="onCountryChange($event)"
+        [showClear]="false"
+        [placeholder]="''">
+        <ng-template pTemplate="selectedItem">
+          <div class="langFlag" *ngIf="selectedLanguage">
+            <img
+              [src]="getFlagUrl(selectedLanguage.code)"
+              [alt]="selectedLanguage.name + ' flag'" />
+            <span>{{ selectedLanguage.name }}</span>
+          </div>
+        </ng-template>
+        <ng-template let-country pTemplate="item">
+          <div class="langFlag">
+            <img
+              [src]="getFlagUrl(country.code)"
+              [alt]="country.name + ' flag'" />
+            <span>{{ country.name }}</span>
+          </div>
+        </ng-template>
+      </p-dropdown>
+    </div>
+
+    <hr />
+
+    <!-- Enlaces de perfil y logout -->
+    <div class="userActions">
+      <a routerLink="/profile" class="subMenuLink">
+        <p>{{ 'NAV.PROFILE' | translate }}</p>
+      </a>
+      <a
+        *ngIf="showAdminButtons"
+        routerLink="/users-center"
+        class="subMenuLink">
+        <p>{{ 'NAV.USERS' | translate }}</p>
+      </a>
+
+      <a href="#" class="logoutBtn" (click)="logout()">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        {{ 'NAV.LOGOUT' | translate }}
+      </a>
+    </div>
+  </div>
+</nav>

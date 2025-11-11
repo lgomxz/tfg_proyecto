@@ -1,0 +1,72 @@
+<div class="page-container">
+  <div class="pubis-info" [class.loaded]="!loading">
+    <h2>{{ 'PUBIS_INFO.TITLE' | translate }}</h2>
+
+    <div class="info-item">
+      <span class="label">{{ 'PUBIS_INFO.PUBIS_CODE' | translate }}:</span>
+      <span class="value">{{ pubisObj?.shortId }}</span>
+    </div>
+
+    <div class="info-item">
+      <span class="label">{{ 'PUBIS_INFO.SEX' | translate }}:</span>
+      <span class="value">
+        {{
+          pubisObj?.subject?.sex === 'masc'
+            ? ('SEX_VALUES.MALE' | translate)
+            : ('SEX_VALUES.FEMALE' | translate)
+        }}
+      </span>
+    </div>
+
+    <div class="info-item">
+      <span class="label"
+        >{{ 'PUBIS_INFO.YEAR_OF_ACQUISITION' | translate }}:</span
+      >
+      <span class="value">{{ acquisitionYear }}</span>
+    </div>
+
+    <div class="info-item">
+      <span class="label">{{ 'PUBIS_INFO.BODY_BUILD' | translate }}:</span>
+      <span class="value">{{ pubisObj?.subject?.body_build }}</span>
+    </div>
+
+    <div class="info-item">
+      <span class="label">{{ 'PUBIS_INFO.JUDGED' | translate }}:</span>
+      <span class="value">
+        {{
+          pubisObj?.subject?.judged === 'yesJ'
+            ? ('JUDGED_VALUES.YES' | translate)
+            : ('JUDGED_VALUES.NO' | translate)
+        }}
+      </span>
+    </div>
+
+    <div class="info-item">
+      <span class="label">{{ 'PUBIS_INFO.DEATH_CAUSE' | translate }}:</span>
+      <span class="value">{{ pubisObj?.subject?.death_cause }}</span>
+    </div>
+
+    <div class="info-item">
+      <span class="label"
+        >{{ 'PUBIS_INFO.TOXICOLOGICAL_REPORT' | translate }}:</span
+      >
+      <span class="value">{{ pubisObj?.subject?.toxicological_report }}</span>
+    </div>
+
+    <div class="info-item">
+      <span class="label"
+        >{{ 'PUBIS_INFO.STATE_OF_PRESERVATION' | translate }}:</span
+      >
+      <span class="value">{{ pubisObj?.preservation_state }}</span>
+    </div>
+
+    <div class="info-item">
+      <span class="label"
+        >{{ 'PUBIS_INFO.PRELIMINARY_PROCEEDINGS' | translate }}:</span
+      >
+      <span class="value">{{
+        pubisObj?.subject?.preliminary_proceedings
+      }}</span>
+    </div>
+  </div>
+</div>

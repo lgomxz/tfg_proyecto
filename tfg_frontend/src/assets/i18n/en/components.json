@@ -1,0 +1,173 @@
+{
+  "BUTTONS": {
+    "ADD": "ADD",
+    "CREATE": "CREATE",
+    "NEW": "New",
+    "UPDATE": "Update",
+    "PWD_CHANGE": "Change password",
+    "FILE": "Choose file",
+    "SAVE": "Save",
+    "VERIFY": "Check",
+    "CANCEL": "Cancel",
+    "GALLERY": "Gallery",
+    "3DVIEWER": "3D Viewer",
+    "CLOSE": "Close",
+    "OPEN": "Open",
+    "BACK": "Back",
+    "DOWNLOAD": "Download",
+    "IMG": "Upload image",
+    "NEXT": "Next",
+    "FINISH": "Finish",
+    "ANALYZE": "Analyze",
+    "DOWNLOAD_CSV": "Download CSV",
+    "ASSIGN": "Assign",
+    "CONFIRM": "Confirm",
+    "DESELECT": "Deselect all",
+    "SELECT":"Select all",
+    "DELETE": "Delete"
+  },
+  "TAB": {
+    "USERS": "Users",
+    "PENDING": "Pending",
+    "MY_COLLECTIONS": "My collections",
+    "ALL_COLLECTIONS": "All collections"
+  },
+  "TABLE": {
+    "ACTIONS": "Actions",
+    "DECLINE": "Decline",
+    "ACCEPT": "Accept"
+  },
+  "USERS_COLUMNS": {
+    "ID": "ID",
+    "NAME": "Name",
+    "LASTNAME": "Last Name",
+    "EMAIL": "Email",
+    "DESCRIPTION": "Description",
+    "STATUS": "Status"
+  },
+
+  "MAIN_COLUMNS": {
+    "ID": "ID",
+    "COLLECTION_NAME": "Collection"
+  },
+
+  "DIALOGS": {
+    "ACCEPT_USER_HEADER": "Accept User",
+    "DECLINE_USER_HEADER": "Decline User",
+    "EDIT_USER_HEADER": "Edit User",
+    "DELETE_USER_HEADER": "Delete User",
+    "ACCEPT_USER_TEXT": "What role do you want to assign?",
+    "DECLINE_USER_TEXT": "Are you sure you want to decline this user?",
+    "DELETE_USER_TEXT": "Are you sure you want to delete this user?",
+
+    "NEW_COLLECTION_HEADER": "New Collection",
+    "EDIT_COLLECTION_HEADER": "Edit Collection",
+    "DELETE_COLLECTION_HEADER": "Delete Collection",
+
+    "NEW_COLLECTION_TEXT": "Please enter the name of the new collection.",
+    "EDIT_COLLECTION_TEXT": "Please edit the name of the collection.",
+    "DELETE_COLLECTION_TEXT": "Are you sure you want to delete this collection?",
+
+    "NEW_COLLECTION_INPUT_LABEL": "Name",
+    "EDIT_COLLECTION_INPUT_LABEL": "Edit collection name",
+
+    "CANCEL_BUTTON": "Cancel",
+    "ACCEPT_BUTTON": "Accept",
+    "DELETE_BUTTON": "Delete",
+    "DECLINE_BUTTON": "Decline",
+    "SAVE_BUTTON": "Save",
+
+    "ASSIGN_COLLECTION_HEADER": "Assign Collection(s)",
+    "SEARCH_USER_PLACEHOLDER": "Search user...",
+    "ASSIGN_BUTTON": "Assign",
+
+    "DELETE_TITLE": "Delete file",
+    "DELETE_FILE": "Are you sure you want to delete this file?"
+  },
+  "PUBIS_DIALOGS": {
+    "PERSONAL_INFO": "Personal Information",
+    "NAME": "Name",
+    "LAST_NAME": "Last Name",
+    "GENDER": "Gender",
+    "MALE": "Male",
+    "FEMALE": "Female",
+    "BIOLOGICAL_AGE_AT_DEATH": "Biologial Age-at-death",
+    "BUILD": "Build",
+    "RIGHT_LATERALITY": "Right Laterality",
+    "RIGHT_PRESERVATION_STATUS": "Right Preservation Status",
+    "LEFT_LATERALITY": "Left Laterality",
+    "LEFT_PRESERVATION_STATUS": "Left Preservation Status",
+    "CASE_INFO": "Case Information",
+    "PRELIMINARY_PROCEEDINGS": "Preliminary Proceedings",
+    "MEDICAL_CASE_DETAILS": "Medical Case Details",
+    "BONE_ACQUISITION_YEAR": "Year of Pubic Bone Acquisition",
+    "COURT_EVALUATION": "Court Evaluation",
+    "CAUSE_OF_DEATH": "Cause of Death",
+    "TOXICOLOGICAL_REPORT": "Toxicological Report",
+    "YES": "YES",
+    "NO": "NO",
+    "CREATE_NEW_SAMPLE": "Create new sample",
+    "EDIT_SAMPLE": "Edit sample",
+    "STEP_SELECT_OPTION": "Select option",
+    "STEP_SELECT_OPTION_TEXT": "Select one of the following options:",
+    "ADD_NEW_SAMPLE": "Add new sample to the collection",
+    "ADD_MULTIPLE_SAMPLES": "Add multiple samples to the collection",
+    "STEP_PUBIS_DATA": "Pubis Data",
+    "STEP_IMPORT_IMAGES": "Import images",
+    "STEP_IMPORT_IMAGES_TEXT": "Select the images you want to import",
+    "STEP_IMPORT_3D": "Import 3D models",
+    "STEP_IMPORT_3D_TEXT": "Select the 3D Models you want to import",
+    "FILL_FORM_PUBIS": "Fill out the form with the pubis data",
+    "SELECT_EXCEL_TO_IMPORT": "Select the excel you want to import"
+    },
+  "SEARCHBAR": {
+    "SEARCH": "Search ..."
+  },
+
+  "TOOLTIPS": {
+    "MORE_INFO": "More information ..."
+  },
+
+  "FILE_POOL": {
+    "DATE": "Date",
+    "SIZE": "Size",
+    "TITLE": "Documentation"
+  },
+  "CHART": {
+    "SCORE_LABEL": "Score against expert labels"
+  },
+  "TOAST": {
+    "SUCCESS": {
+      "SAVED": {
+        "SUMMARY": "Saved",
+        "DETAIL": "This pubis has been labeled"
+      },
+      "UPLOADED": {
+        "SUMMARY": "Uploaded",
+        "DETAIL": "This file has been successfully uploaded"
+      },
+      "COLLECTION_ASSIGNED": {
+        "SUMMARY": "Collection/s assigned",
+        "DETAIL": "Collection/s assigned correctly"
+      },
+      "REGISTRATION_SUCCESS": {
+        "SUMMARY": "Registration successful!",
+        "DETAIL": "You will receive an email with your assigned credentials shortly"
+      },
+      "EMAIL_SENT": {
+        "SUMMARY": "Email Sent",
+        "DETAIL": "The email has been sent successfully."
+      }
+    },
+    "ERROR": {
+      "GENERAL": {
+        "SUMMARY": "Something went wrong",
+        "DETAIL": "Please try again later"
+      },
+      "EMAIL_SEND_ERROR": {
+        "SUMMARY": "Error sending email",
+        "DETAIL": "The email could not be sent. Please try again."
+      }
+    }
+  }
+}

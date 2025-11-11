@@ -1,0 +1,48 @@
+<div class="wizard-container">
+  <div class="steps-wrapper">
+    <ng-container *ngFor="let step of steps; let i = index">
+      <div
+        class="step-circle"
+        [class.active]="i === activeStep"
+        [class.completed]="i < activeStep">
+        {{ i + 1 }}
+      </div>
+
+      <div
+        *ngIf="i < steps.length - 1"
+        class="step-bar"
+        [ngClass]="{
+          filled: i < activeStep,
+          empty: i >= activeStep,
+        }">
+        <div class="bar-bg"></div>
+        <div class="bar-fill"></div>
+      </div>
+    </ng-container>
+  </div>
+
+  <div class="step-content">
+    <h3>{{ steps[activeStep].title | translate }}</h3>
+    <ng-template #stepContainer></ng-template>
+    <div *ngIf="!steps[activeStep]?.component && steps[activeStep]?.content">
+      <ng-container
+        [ngTemplateOutlet]="steps[activeStep]?.content || null"></ng-container>
+    </div>
+  </div>
+
+  <div class="buttons">
+    <button (click)="prev()" [disabled]="activeStep === 0">
+      {{ 'BUTTONS.BACK' | translate }}
+    </button>
+
+    <button
+      (click)="activeStep === steps.length - 1 ? onFinish() : next()"
+      [disabled]="!canAdvance()">
+      {{
+        activeStep === steps.length - 1
+          ? ('BUTTONS.FINISH' | translate)
+          : ('BUTTONS.NEXT' | translate)
+      }}
+    </button>
+  </div>
+</div>

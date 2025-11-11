@@ -1,0 +1,147 @@
+<div class="mat-elevation-z8">
+  <table
+    mat-table
+    [dataSource]="dataSource"
+    matSort
+    (matSortChange)="announceSortChange($event)"
+    multiTemplateDataRows
+    class="mat-elevation-z8 custom-table">
+    <!-- Checkbox Column -->
+    <ng-container
+      *ngIf="hasCheckboxColumn && !isFlatTable"
+      matColumnDef="select">
+      <th mat-header-cell *matHeaderCellDef>
+        <mat-checkbox
+          (change)="toggleSelectAll($event)"
+          [checked]="isAllSelected()"></mat-checkbox>
+      </th>
+      <td mat-cell *matCellDef="let row">
+        <mat-checkbox
+          (click)="$event.stopPropagation()"
+          (change)="toggleRowSelection(row)"
+          [checked]="isSelected(row)">
+        </mat-checkbox>
+      </td>
+    </ng-container>
+
+    <!-- Dynamic columns -->
+    <ng-container
+      *ngFor="let column of tableConfig; trackBy: trackByColumn"
+      [matColumnDef]="column.apiField">
+      <th mat-header-cell *matHeaderCellDef>
+        <div *ngIf="column.sortable; else noSortHeader" mat-sort-header>
+          {{ column.title | translate }}
+        </div>
+        <ng-template #noSortHeader>
+          <div>{{ column.title | translate }}</div>
+        </ng-template>
+      </th>
+      <td
+        mat-cell
+        *matCellDef="let row"
+        [attr.data-column]="column.apiField"
+        [ngStyle]="{
+          width: column.apiField === 'description' ? '400px' : 'auto',
+        }">
+        <!-- Caso para description -->
+        <span *ngIf="column.apiField === 'description'">
+          <div
+            class="description-content"
+            [@detailExpand]="expandedRow === row ? 'expanded' : 'collapsed'">
+            <span *ngIf="expandedRow === row; else shortText">
+              {{ row[column.apiField] }}
+            </span>
+            <ng-template #shortText>
+              <span>{{ getShortText(row) }}</span>
+            </ng-template>
+          </div>
+        </span>
+
+        <!-- Caso para fechas -->
+        <span *ngIf="column.isDate">
+          {{ row[column.apiField] | date: 'dd/MM/yyyy' }}
+        </span>
+
+        <!-- Caso general para otros campos -->
+        <span
+          *ngIf="!column.isDate && column.apiField !== 'description'"
+          [ngClass]="getCellClass(row[column.apiField], column.apiField)">
+          {{ row[column.apiField] }}
+        </span>
+      </td>
+    </ng-container>
+
+    <!-- Actions column -->
+    <ng-container *ngIf="showActions" matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>
+        {{ 'TABLE.ACTIONS' | translate }}
+      </th>
+      <td class="actionsCell" mat-cell *matCellDef="let row">
+        <div class="actionIcons" *ngIf="!isUserIcons">
+          <button class="edit-button" (click)="onEditClick(row)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button class="delete-button" (click)="onDeleteClick(row)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+        <div class="userIcons" *ngIf="isUserIcons">
+          <button class="accept-button" (click)="onAccept(row)">
+            {{ 'TABLE.ACCEPT' | translate }}
+          </button>
+          <button class="decline-button" (click)="onDeclineClick(row)">
+            {{ 'TABLE.DECLINE' | translate }}
+          </button>
+        </div>
+      </td>
+    </ng-container>
+
+    <!-- Expansion column -->
+    <ng-container matColumnDef="expand">
+      <th mat-header-cell *matHeaderCellDef aria-label="row actions">&nbsp;</th>
+      <td mat-cell *matCellDef="let row">
+        <button
+          class="chevron_button"
+          *ngIf="needsExpansion(row)"
+          mat-icon-button
+          aria-label="expand row"
+          (click)="
+            expandedRow = expandedRow === row ? null : row;
+            $event.stopPropagation()
+          ">
+          <mat-icon class="chevron-icon" *ngIf="expandedRow === row"
+            >keyboard_arrow_up</mat-icon
+          >
+          <mat-icon class="chevron-icon" *ngIf="expandedRow !== row"
+            >keyboard_arrow_down</mat-icon
+          >
+        </button>
+      </td>
+    </ng-container>
+
+    <!-- Header and row definition -->
+    <tr
+      mat-header-row
+      *matHeaderRowDef="getColumnFields().concat('expand')"></tr>
+
+    <tr
+      mat-row
+      *matRowDef="let row; columns: getColumnFields().concat('expand')"
+      [ngClass]="{
+        selected: actualRow === row && !isFlatTable,
+        expanded: expandedRow === row && !isFlatTable,
+        'flat-table-row': isFlatTable,
+      }"
+      (click)="!isFlatTable ? selectRow(row) : null"
+      (dblclick)="!isFlatTable ? onTableRowDblClick(row) : null"></tr>
+  </table>
+
+  <!-- Paginador -->
+  <mat-paginator
+    *ngIf="!isFlatTable"
+    [length]="dataSource.data.length"
+    [pageSize]="10"
+    [pageSizeOptions]="[5, 10, 20, 50]"
+    showFirstLastButtons>
+  </mat-paginator>
+</div>

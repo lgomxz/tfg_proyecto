@@ -1,0 +1,17 @@
+<div class="filtering">
+  <div class="search">
+    <input type="text" pInputText placeholder="Enter text..." #searchText />
+  </div>
+  <div class="filterButtons">
+    <button
+      class="searchButton"
+      mat-raised-button
+      color="primary"
+      (click)="onSearch()">
+      <mat-icon class="iconSearch">search</mat-icon>
+    </button>
+    <button mat-raised-button color="primary" (click)="onClear()">
+      <mat-icon>clear</mat-icon>
+    </button>
+  </div>
+</div>

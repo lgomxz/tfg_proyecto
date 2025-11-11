@@ -1,0 +1,326 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 0;
+  color: #2c2c2c;
+  background-color: #fafafa;
+
+  ::ng-deep .results-table .mat-mdc-table td:first-child {
+    font-weight: 700;
+    color: #2b2577;
+  }
+
+  ::ng-deep .results-table .mat-mdc-table td:nth-child(2) {
+    color: #00b2a9;
+  }
+}
+
+.experiments-body {
+  width: 90%;
+  margin: 0 auto;
+  padding: 1.5rem 2rem;
+  box-sizing: border-box;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.option-step {
+  text-align: center;
+  padding: 1.5rem 0;
+
+  h4 {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    color: #2c2c2c;
+  }
+}
+
+.card-options {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 5rem;
+  flex-wrap: wrap;
+}
+
+.option-card {
+  width: 260px;
+  border: 2px solid #2b2577;
+  border-radius: 8px;
+  padding: 1.25rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2b2577;
+    margin-bottom: 0.4rem;
+  }
+
+  .description {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.35;
+  }
+
+  &:hover {
+    border-color: #00b2a9;
+    box-shadow: 0 8px 20px rgba(0, 178, 169, 0.2);
+    transform: scale(1.01);
+  }
+
+  &.selected {
+    border-color: #d6005c;
+    background-color: #fff0f5;
+    box-shadow: 0 0 12px rgba(214, 0, 92, 0.4);
+  }
+}
+
+.card-options.sub-options {
+  gap: 3rem;
+}
+
+.filter-step {
+  padding: 1.5rem 0;
+}
+
+.filter-label {
+  display: block;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+  color: #2c2c2c;
+}
+
+.filter-pill-group {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  justify-content: center;
+}
+
+.filter-pill {
+  background-color: transparent;
+  border: 2px solid #4a4a7a;
+  border-radius: 20px;
+  padding: 0.5rem 1.5rem;
+  color: #4a4a7a;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
+
+  &:hover {
+    background-color: #2b2577;
+    color: white;
+    border-color: #2b2577;
+  }
+
+  &.active {
+    background-color: #d6005c;
+    color: white;
+    border-color: #d6005c;
+  }
+}
+
+.results-table {
+  padding: 2rem;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  margin: 2rem;
+  opacity: 0;
+  animation: fadeIn 0.5s forwards;
+
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+:host ::ng-deep .results-table .mat-mdc-table {
+  border-collapse: separate;
+  border-spacing: 0 8px;
+}
+
+:host ::ng-deep .results-table .mat-mdc-table tr {
+  background-color: #fff;
+  transition: background-color 0.25s ease;
+  border-radius: 8px;
+  cursor: default;
+}
+
+:host ::ng-deep .results-table .mat-mdc-table tr:nth-child(even) {
+  background-color: #f7f9fc;
+}
+
+:host ::ng-deep .results-table .mat-mdc-table tr:hover {
+  background-color: #e1f0f4;
+}
+
+:host ::ng-deep .results-table .mat-mdc-table td {
+  padding: 8px 12px;
+  vertical-align: middle;
+  border-bottom: none !important;
+}
+
+/* ====================== */
+/* Confusion Matrix Table  */
+/* ====================== */
+.confusion-matrix-container,
+.comparison-table-container {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgb(0 0 0 / 0.1);
+  padding: 1.5rem 2rem;
+  margin: 2rem auto;
+  width: 90%;
+  color: #2c2c2c;
+}
+
+.confusion-matrix-container h3,
+.comparison-table-container h3 {
+  font-weight: 700;
+  font-size: 1.6rem;
+  margin-bottom: 1.25rem;
+  text-align: center;
+  color: #2b2577;
+}
+
+.confusion-matrix-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  text-align: center;
+
+  th, td {
+    border: 1px solid #ddd;
+    padding: 0.3rem 0.5rem;
+    height: 30px;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+
+  thead th {
+    background-color: #2b2577;
+    color: #fff;
+    font-weight: 600;
+  }
+
+  tbody td.phase-label {
+    font-weight: 600;
+    text-align: left;
+    padding-left: 1rem;
+    background-color: #f3f3f3;
+    width: 160px;
+    white-space: nowrap;
+  }
+
+  tbody td.correct {
+    background-color: #c8f7c5;
+    font-weight: 700;
+    color: #1a5e20;
+  }
+
+  tbody tr:nth-child(even) {
+    background-color: #fafafa;
+  }
+}
+
+.accuracy-row {
+  background-color: #f9f9f9;
+  font-weight: 600;
+  color: #d6005c;
+  text-align: center;
+
+  td {
+    padding: 0.5rem;
+    font-size: 0.95rem;
+  }
+}
+
+.comparison-table-container app-table {
+  margin-top: 1rem;
+}
+
+
+:host ::ng-deep .p-tabview-nav-container {
+    position: absolute;
+    top: 80px;
+}
+
+.comparison-table-container table.mat-mdc-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.comparison-table-container table.mat-mdc-table th,
+.comparison-table-container table.mat-mdc-table td {
+  border: 1px solid #ddd;
+  padding: 0.5rem 0.8rem;
+  height: 30px;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.comparison-table-container table.mat-mdc-table thead th {
+  background-color: #2b2577;
+  color: #fff;
+  font-weight: 600;
+}
+
+.comparison-table-container table.mat-mdc-table tbody tr:nth-child(even) {
+  background-color: #fafafa;
+  border-radius: 8px;
+}
+
+.comparison-table-container table.mat-mdc-table tbody td:first-child {
+  font-weight: 700;
+  color: #2b2577;
+}
+
+.comparison-table-container table.mat-mdc-table tbody td:nth-child(2) {
+  color: #00b2a9; /* Min Error */
+}
+
+.comparison-table-container table.mat-mdc-table tbody td:nth-child(3) {
+  color: #d6005c; /* Max Error */
+}
+
+.scatter-chart-container {
+  width: 70%;
+  max-width: 700px;
+  height: 400px;
+  margin: 2rem auto;
+}
+
+.scatter-chart-container canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+

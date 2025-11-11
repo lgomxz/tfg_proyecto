@@ -1,0 +1,68 @@
+<div class="loginBackground">
+  <div class="particlesBackground">
+    <ngx-particles [id]="id" [options]="particlesOptions"></ngx-particles>
+  </div>
+
+  <div class="loginCard">
+    <div class="loginLogo">
+      <img src="../../../assets/img/logo2.png" alt="Logo" />
+    </div>
+    <div class="loginData">
+      <div class="loginData">
+        <form
+          [formGroup]="form"
+          class="loginForm"
+          (keydown)="onKeydown($event)">
+          <div class="emailLogin">
+            <label for="emailData">Email</label>
+            <input
+              id="emailData"
+              pInputText
+              placeholder="Email"
+              formControlName="email"
+              type="email"
+              [class.blink-border]="loginFailed" />
+          </div>
+
+          <div class="passwdLogin">
+            <label for="passwdData">Password</label>
+            <p-password
+              id="passwdData"
+              formControlName="password"
+              [toggleMask]="true"
+              placeholder="Password"
+              [feedback]="false"
+              [class.blink-border]="loginFailed">
+            </p-password>
+          </div>
+
+          <div [class.show]="loginFailed" class="error-message">
+            Incorrect email or password. Please try again.
+          </div>
+          <div class="optionsLogin">
+            <div class="rememberMeCheck">
+              <p-checkbox
+                formControlName="rememberMe"
+                binary="true"></p-checkbox>
+              <span>Remember me</span>
+            </div>
+            <div class="forgottenPasswd">
+              <a routerLink="/forgot-password">Forgot your password?</a>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="loginButton">
+        <button mat-raised-button color="accent" (click)="login()">
+          LOGIN
+        </button>
+      </div>
+      <div class="signUpLink">
+        <a class="signUpText" routerLink="/register"
+          >Not a member? Sign up now</a
+        >
+      </div>
+    </div>
+  </div>
+</div>

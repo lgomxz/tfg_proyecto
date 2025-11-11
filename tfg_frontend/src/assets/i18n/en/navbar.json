@@ -1,0 +1,24 @@
+{
+  "NAV": {
+    "COLLECTIONS": "Collections",
+    "TRAINING_TOOL": "Training tool",
+    "EXPERIMENTS": "Experiments",
+    "AI_ESTIMATION": "AI Estimation",
+    "SINGLE_SAMPLE": "Single Sample",
+    "MULTIPLE_SAMPLES": "Multiple Samples",
+    "DOCUMENTATION": "Documentation",
+    "CONTACT": "Contact",
+    "PROFILE": "Profile",
+    "USERS": "Users",
+    "LOGOUT": "Logout",
+    "PRACTICE_TOOL": "Practice tool",
+    "SETTINGS": "Settings",
+    "HELP_SUPPORT": "Help & Support"
+  },
+
+  "FOOTER": {
+    "PRIVACY_POLICY": "Privacy Policy",
+    "COOKIES_POLICY": "Cookies Policy",
+    "LEGAL_NOTICE": "Legal Notice"
+  }
+}

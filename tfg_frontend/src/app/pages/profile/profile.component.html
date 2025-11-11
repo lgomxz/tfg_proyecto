@@ -1,0 +1,124 @@
+<div class="backgroundProfile">
+  <div class="userPhotoContainer">
+    <div class="photoContainer">
+      <img
+        [src]="imageUrl"
+        alt="User Photo"
+        class="profile-pic"
+        (load)="onImageLoad($event)" />
+    </div>
+    <button class="editButton" mat-raised-button (click)="openEditCard()">
+      <mat-icon>photo_camera</mat-icon>
+      {{ 'BUTTONS.IMG' | translate }}
+    </button>
+    <div class="userTextInfo">
+      <h2 class="userName" *ngIf="user">
+        {{ user!.name }} {{ user!.lastname }}
+      </h2>
+      <div class="userRoleBadge">
+        <mat-icon class="role-icon">verified_user</mat-icon>
+        <span class="userRole">{{ userRole }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="dataContainers">
+    <div class="userDataContainer">
+      <app-form [form]="form" [formConfig]="formConfig"></app-form>
+      <div class="buttonData">
+        <div *ngIf="showSuccessMessageUser" class="success-message">
+          <span>User data has been successfully updated.</span>
+        </div>
+        <button
+          class="modifyDataButton"
+          mat-raised-button
+          (click)="modifyUser()">
+          {{ 'BUTTONS.UPDATE' | translate }}
+        </button>
+      </div>
+    </div>
+
+    <div class="userPasswordContainer">
+      <app-form
+        [form]="passwordForm"
+        [formConfig]="passwdFormConfig"></app-form>
+      <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+      <div class="buttonPwd">
+        <div *ngIf="showPasswordSuccessMessage" class="success-message">
+          <span>Password has been successfully updated.</span>
+        </div>
+        <button
+          class="changePasswordButton"
+          mat-raised-button
+          color="primary"
+          (click)="changePassword()">
+          {{ 'BUTTONS.PWD_CHANGE' | translate }}
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Diálogo para editar la foto -->
+  <mat-dialog-content *ngIf="isEditCardOpen" class="overlay">
+    <div class="photoEditCard">
+      <div class="photoContainer">
+        <!-- Vista previa de la imagen recortada -->
+        <img [src]="imageUrl" alt="User Photo" class="profile-pic-preview" />
+      </div>
+
+      <!-- Etiqueta para el botón de selección de archivos -->
+      <label class="file-upload-label" for="fileInput">
+        <mat-icon>upload</mat-icon>
+        {{ 'BUTTONS.FILE' | translate }}
+        <input
+          id="fileInput"
+          type="file"
+          #fileInput
+          (change)="onFileChange($event)"
+          accept="image/*" />
+      </label>
+
+      <!-- Contenedor de botones de acción -->
+      <div class="buttonPhoto">
+        <button
+          class="savePhotoButton"
+          mat-raised-button
+          color="primary"
+          (click)="savePhoto()">
+          {{ 'BUTTONS.SAVE' | translate }}
+        </button>
+        <button
+          class="cancelPhotoButton"
+          mat-raised-button
+          (click)="closeEditCard()">
+          {{ 'BUTTONS.CANCEL' | translate }}
+        </button>
+      </div>
+    </div>
+  </mat-dialog-content>
+</div>
+
+<ng-template #imageCropperDialog>
+  <div mat-dialog-content class="cropper-dialog">
+    <h2 class="cropper-title">Crop Your Image</h2>
+    <image-cropper
+      [imageChangedEvent]="imageChangedEvent"
+      [maintainAspectRatio]="true"
+      [aspectRatio]="1 / 1"
+      format="png"
+      (imageCropped)="imageCropped($event)"
+      (imageLoaded)="imageLoaded($event)"
+      [cropperStaticHeight]="300"
+      [cropperStaticWidth]="300"
+      >>
+    </image-cropper>
+  </div>
+  <div mat-dialog-actions class="cropper-actions">
+    <button mat-button (click)="cancel()">
+      {{ 'BUTTONS.CANCEL' | translate }}
+    </button>
+    <button mat-button color="primary" (click)="savePhoto()">
+      {{ 'BUTTONS.SAVE' | translate }}
+    </button>
+  </div>
+</ng-template>

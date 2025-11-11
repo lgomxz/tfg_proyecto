@@ -1,0 +1,35 @@
+<div *ngIf="pdfSrc">
+  <div class="buttonsPdfViewer">
+    <button mat-raised-button color="accent" (click)="goBack()">
+      {{ 'BUTTONS.BACK' | translate }}
+    </button>
+    <button mat-raised-button color="accent" (click)="downloadDoc()">
+      {{ 'BUTTONS.DOWNLOAD' | translate }}
+    </button>
+  </div>
+  <ngx-extended-pdf-viewer
+    style="display: block; width: 100%; height: 80vh"
+    [src]="pdfSrc || ''"
+    [showToolbar]="true"
+    [showHighlightEditor]="false"
+    [showSidebarButton]="false"
+    [showFindButton]="true"
+    [showPagingButtons]="false"
+    [showDrawEditor]="false"
+    [showStampEditor]="false"
+    [showTextEditor]="false"
+    [showZoomButtons]="true"
+    [showPresentationModeButton]="false"
+    [showOpenFileButton]="false"
+    [showPrintButton]="false"
+    [showDownloadButton]="false"
+    [showSecondaryToolbarButton]="false"
+    [showRotateButton]="false"
+    [showRotateCwButton]="false"
+    [showRotateCcwButton]="false"
+    [showHandToolButton]="false"
+    [showScrollingButton]="false"
+    [showSpreadButton]="false"
+    [showPropertiesButton]="false">
+  </ngx-extended-pdf-viewer>
+</div>

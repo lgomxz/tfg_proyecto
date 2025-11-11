@@ -1,0 +1,173 @@
+{
+  "BUTTONS": {
+    "ADD": "Añadir",
+    "CREATE": "Crear",
+    "NEW": "Nuevo",
+    "UPDATE": "Actualizar",
+    "PWD_CHANGE": "Cambiar contraseña",
+    "FILE": "Elegir archivo",
+    "SAVE": "Guardar",
+    "VERIFY": "Comprobar",
+    "CANCEL": "Cancelar",
+    "GALLERY": "Galería",
+    "3DVIEWER": "Visor 3D",
+    "CLOSE": "Cerrar",
+    "OPEN": "Abrir",
+    "BACK": "Volver",
+    "DOWNLOAD": "Descargar",
+    "IMG": "Subir imagen",
+    "NEXT": "Siguiente",
+    "FINISH": "Finalizar",
+    "ANALYZE": "Analizar",
+    "DOWNLOAD_CSV": "Descargar CSV",
+    "ASSIGN": "Asignar",
+    "CONFIRM": "Confirmar",
+    "DESELECT": "Deseleccionar todo",
+    "SELECT":"Seleccionar todo",
+    "DELETE": "Borrar"
+
+  },
+  "TAB": {
+    "USERS": "Usuarios",
+    "PENDING": "Pendientes",
+    "MY_COLLECTIONS": "Mis colecciones",
+    "ALL_COLLECTIONS": "Todas las colecciones"
+    
+  },
+  "TABLE": {
+    "ACTIONS": "Acciones",
+    "DECLINE": "Declinar",
+    "ACCEPT": "Aceptar"
+  },
+  "USERS_COLUMNS": {
+    "ID": "ID",
+    "NAME": "Nombre",
+    "LASTNAME": "Apellido",
+    "EMAIL": "Correo Electrónico",
+    "DESCRIPTION": "Descripción",
+    "STATUS": "Estado"
+  },
+  "MAIN_COLUMNS": {
+    "ID": "ID",
+    "COLLECTION_NAME": "Colección"
+  },
+
+  "DIALOGS": {
+    "ACCEPT_USER_HEADER": "Aceptar Usuario",
+    "DECLINE_USER_HEADER": "Rechazar Usuario",
+    "EDIT_USER_HEADER": "Editar Usuario",
+    "DELETE_USER_HEADER": "Eliminar Usuario",
+    "ACCEPT_USER_TEXT": "¿Qué rol deseas asignar?",
+    "DECLINE_USER_TEXT": "¿Estás seguro de que deseas rechazar a este usuario?",
+    "DELETE_USER_TEXT": "¿Estás seguro de que deseas eliminar a este usuario?",
+
+    "NEW_COLLECTION_HEADER": "Nueva Colección",
+    "EDIT_COLLECTION_HEADER": "Editar Colección",
+    "DELETE_COLLECTION_HEADER": "Eliminar Colección",
+
+    "NEW_COLLECTION_TEXT": "Por favor, ingresa el nombre de la nueva colección.",
+    "EDIT_COLLECTION_TEXT": "Por favor, edita el nombre de la colección.",
+    "DELETE_COLLECTION_TEXT": "¿Estás seguro de que deseas eliminar esta colección?",
+
+    "NEW_COLLECTION_INPUT_LABEL": "Nombre",
+    "EDIT_COLLECTION_INPUT_LABEL": "Editar nombre de la colección",
+
+    "CANCEL_BUTTON": "Cancelar",
+    "ACCEPT_BUTTON": "Aceptar",
+    "DELETE_BUTTON": "Eliminar",
+    "DECLINE_BUTTON": "Rechazar",
+    "SAVE_BUTTON": "Guardar",
+
+    "ASSIGN_COLLECTION_HEADER": "Asignar colección(es)",
+    "SEARCH_USER_PLACEHOLDER": "Buscar usuario...",
+    "ASSIGN_BUTTON": "Asignar",
+
+    "DELETE_TITLE": "Borrar archivo",
+    "DELETE_FILE": "¿Estás seguro de que quieres borrar este archivo?"
+  },
+  "PUBIS_DIALOGS": {
+    "PERSONAL_INFO": "Información personal",
+    "NAME": "Nombre",
+    "LAST_NAME": "Apellido",
+    "GENDER": "Género",
+    "MALE": "Masculino",
+    "FEMALE": "Femenino",
+    "BIOLOGICAL_AGE_AT_DEATH": "Edad biológica al fallecer",
+    "BUILD": "Complexión",
+    "RIGHT_LATERALITY": "Lateralidad derecha",
+    "RIGHT_PRESERVATION_STATUS": "Estado de conservación derecha",
+    "LEFT_LATERALITY": "Lateralidad izquierda",
+    "LEFT_PRESERVATION_STATUS": "Estado de conservación izquierda",
+    "CASE_INFO": "Información del caso",
+    "PRELIMINARY_PROCEEDINGS": "Trámites preliminares",
+    "MEDICAL_CASE_DETAILS": "Detalles médicos",
+    "BONE_ACQUISITION_YEAR": "Año de adquisición del hueso púbico",
+    "COURT_EVALUATION": "Evaluación judicial",
+    "CAUSE_OF_DEATH": "Causa de fallecimiento",
+    "TOXICOLOGICAL_REPORT": "Informe toxicológico",
+    "YES": "Sí",
+    "NO": "No",
+    "CREATE_NEW_SAMPLE": "Crear nueva muestra",
+    "EDIT_SAMPLE": "Editar muestra",
+    "STEP_SELECT_OPTION": "Seleccionar opción",
+    "STEP_SELECT_OPTION_TEXT": "Seleccione una de las siguientes opciones:",
+    "ADD_NEW_SAMPLE": "Agregar nueva muestra a la colección",
+    "ADD_MULTIPLE_SAMPLES": "Agregar múltiples muestras a la colección",
+    "STEP_PUBIS_DATA": "Datos de Pubis",
+    "STEP_IMPORT_IMAGES": "Importar imágenes",
+    "STEP_IMPORT_IMAGES_TEXT": "Seleccione las imágenes que desea importar",
+    "STEP_IMPORT_3D": "Importar modelos 3D",
+    "STEP_IMPORT_3D_TEXT": "Seleccione los modelos 3D que desea importar",
+    "FILL_FORM_PUBIS": "Complete el formulario con los datos del pubis",
+    "SELECT_EXCEL_TO_IMPORT": "Seleccione el Excel que desea importar"
+  },
+  "SEARCHBAR": {
+    "SEARCH": "Buscar ..."
+  },
+  "TOOLTIPS": {
+    "MORE_INFO": "Más información ..."
+  },
+  "FILE_POOL": {
+    "DATE": "Fecha",
+    "SIZE": "Tamaño",
+    "TITLE": "Documentación"
+  },
+  
+  "CHART": {
+    "SCORE_LABEL": "Puntuación sobre etiquetas expertas"
+  },
+  "TOAST": {
+    "SUCCESS": {
+      "SAVED": {
+        "SUMMARY": "Guardado",
+        "DETAIL": "Este pubis ha sido etiquetado"
+      },
+      "UPLOADED": {
+        "SUMMARY": "Subido",
+        "DETAIL": "Este archivo se ha subido correctamente"
+      },
+      "COLLECTION_ASSIGNED": {
+        "SUMMARY": "Colección/es asignada/s",
+        "DETAIL": "La/s colección/es se han asignado correctamente"
+      },
+      "REGISTRATION_SUCCESS": {
+        "SUMMARY": "¡Registro exitoso!",
+        "DETAIL": "Recibirá un correo electrónico con sus credenciales asignadas en breve"
+      },
+      "EMAIL_SENT": {
+        "SUMMARY": "Correo enviado",
+        "DETAIL": "El correo ha sido enviado exitosamente."
+      }
+    },
+    "ERROR": {
+      "GENERAL": {
+        "SUMMARY": "Algo salió mal",
+        "DETAIL": "Por favor, inténtalo de nuevo más tarde"
+      },
+      "EMAIL_SEND_ERROR": {
+        "SUMMARY": "Error al enviar correo",
+        "DETAIL": "No se pudo enviar el correo. Inténtalo de nuevo."
+      }
+    }
+  }
+}

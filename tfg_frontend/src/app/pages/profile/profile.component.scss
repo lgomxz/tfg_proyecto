@@ -1,0 +1,346 @@
+.backgroundProfile {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #2b2577, #000000) !important;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 20px;
+
+  .userPhotoContainer {
+    background-color: rgb(255, 255, 255);
+    // height: 100%;
+    width: 20%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 80px;
+    border-radius: 10px;
+    border: 2px solid #ececeb;
+
+    .photoContainer {
+      width: 220px; 
+      height: 220px;
+      border-radius: 50%;
+      background-color: whitesmoke;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      margin-bottom: 20px;
+      border: 5px solid #c30058;
+      transition: border-color 0.4s ease-in-out;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+        opacity: 0;
+        transition: opacity 0.4s ease-in-out;
+      }
+
+      img.loaded {
+        opacity: 1;
+      }
+    }
+
+    .editButton {
+      background-color: #c30058;
+      color: white;
+      border-radius: 5px;
+      padding: 10px 20px;
+      margin-inline: 10px;
+      transition:
+        background-color 0.3s,
+        color 0.3s;
+
+      mat-icon {
+        color: white;
+        margin-right: 6px;
+      }
+
+      &:hover {
+        background-color: #d6005c;
+        box-shadow: 0 4px 12px rgba(195, 0, 88, 0.3);
+      }
+    }
+
+    .buttonPhoto {
+      margin-top: 30px;
+    }
+
+    .userTextInfo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 40px;
+      text-align: center;
+
+      .userName {
+        font-size: 22px;
+        font-weight: 600;
+        color: #2b2577;
+        margin: 10px 0;
+      }
+
+      .userRoleBadge {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #f0f0f0;
+        border: 1px solid #ddd;
+        border-radius: 20px;
+        padding: 4px 10px;
+        margin-top: 8px;
+
+        .role-icon {
+          display: flex;
+          align-items: center;
+          font-size: 18px;
+          color: #2b2577;
+          margin-right: 6px;
+        }
+
+        .userRole {
+          font-size: 12px;
+          color: #333;
+          text-transform: uppercase;
+          font-weight: 500;
+          letter-spacing: 0.5px;
+        }
+      }
+    }
+  }
+
+  .dataContainers {
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    gap: 10px;
+
+    .userDataContainer,
+    .userPasswordContainer {
+      border-radius: 10px;
+      border: 2px solid #ececeb;
+      background-color: rgb(255, 255, 255);
+      padding: 20px;
+    }
+
+    .buttonData,
+    .buttonPwd {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+
+      button {
+        background-color: #1e3c72;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        margin-inline: 10px;
+
+        &:hover {
+          background-color: #2a5298;
+        }
+      }
+    }
+
+    .error-message {
+      color: #d9534f;
+      font-size: 13px;
+      width: 45%;
+      text-align: center;
+      background-color: #f2dede;
+      padding: 5px;
+      border: 1px solid #d9534f;
+      border-radius: 5px;
+      margin-left: 10px;
+    }
+
+    .success-message {
+      color: #28a745;
+      font-size: 13px;
+      width: 40%;
+      background-color: #d4edda;
+      padding: 5px;
+      border: 1px solid #28a745;
+      border-radius: 5px;
+      text-align: center;
+      margin-inline: 20px;
+      opacity: 1;
+      transition: opacity 1.5s ease-in-out;
+    }
+
+    .success-message.fade-out {
+      opacity: 0;
+    }
+  }
+
+  // Estilos para el cuadro de diálogo de edición de fotos
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7); // Fondo oscuro
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; // Asegura que esté por encima de otros elementos
+  }
+
+  ::ng-deep .mat-mdc-dialog-content {
+    max-height: none;
+  }
+  .photoEditCard {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 600px;
+
+    .photoContainer {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+      margin-bottom: 10px;
+
+      img {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+    }
+
+    /* Estilo para el label que actúa como botón */
+    .file-upload-label {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 6px 20px;
+      border: 2px solid #00b2a9;
+      border-radius: 5px;
+      background-color: #00b2a9;
+      color: white;
+      cursor: pointer;
+      text-align: center;
+      margin-block: 20px; /* Espaciado superior e inferior */
+      transition:
+        background-color 0.3s,
+        color 0.3s;
+
+      /* Ocultar el input de archivo real */
+      input[type='file'] {
+        display: none; /* Ocultar el input real */
+      }
+
+      &:hover {
+        background-color: #00b2a9; /* Color de fondo al pasar el ratón */
+        color: #fff; /* Color del texto al pasar el ratón */
+      }
+    }
+
+    .buttonPhoto {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+
+      .savePhotoButton,
+      .cancelPhotoButton {
+        width: 48%; /* Ancho de los botones */
+      }
+
+      .cancelPhotoButton {
+        background-color: #c30058; /* Color del botón de cancelar */
+        color: white; /* Color del texto del botón de cancelar */
+      }
+    }
+  }
+}
+.cropper-dialog {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 800px; // Limitar el ancho máximo
+  width: 100%; // Ancho completo del contenedor
+  overflow: hidden; // Evitar que se agregue scroll
+  ::ng-deep .ngx-ic-overlay {
+    width: 100% !important;
+  }
+}
+
+.cropper-title {
+  margin-bottom: 20px;
+  color: #2b2577;
+  font-size: 24px;
+  text-align: center;
+}
+
+.cropper-actions {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 20px;
+
+  button {
+    flex: 1; // Hacer que los botones ocupen el mismo espacio
+    margin: 0 5px; // Espaciado entre botones
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #00b2a9;
+      color: white;
+    }
+  }
+}
+
+// Clases para definir el tamaño
+.short {
+  width: 20%;
+}
+
+.medium {
+  width: 30%;
+}
+
+.large {
+  width: 45%;
+}
+
+.extraLarge {
+  width: 70%;
+}
+
+.full {
+  width: 100%;
+}
+
+// Estilo para campos obligatorios
+.required::after {
+  content: '*';
+  color: red;
+  margin-left: 5px;
+}
+
+// .profile-pic {
+//   opacity: 0;
+//   transition: opacity 0.4s ease-in-out;
+// }
+
+// .profile-pic.loaded {
+//   opacity: 1;
+// }

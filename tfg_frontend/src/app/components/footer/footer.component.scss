@@ -1,0 +1,30 @@
+.footerContent{
+  height: 150px;
+  background-color: #0A084A;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  img{
+    height: 80px;
+  }
+
+  .legalContent{
+    display: flex;
+    .separator {
+      width: 1px; 
+      background-color: #bdd7f1;
+      margin: 0 20px; 
+    }
+    a{
+      color: #bdd7f1;
+      text-decoration: none;
+      transition: color 0.3s ease, transform 0.3s ease, border-bottom 0.3s ease;
+      &:hover {
+        color: #ffffff;
+        transform: scale(1.05); 
+      }
+    }
+  }
+}

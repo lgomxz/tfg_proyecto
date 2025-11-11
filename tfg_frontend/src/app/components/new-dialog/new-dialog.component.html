@@ -1,0 +1,103 @@
+<p-dialog
+  [modal]="true"
+  [(visible)]="visible"
+  (visibleChange)="visibleChange.emit($event)"
+  [header]="formConfig.header"
+  [draggable]="false"
+  resizable="false"
+  [style]="{ width: '700px', height: 'auto' }">
+  <p-steps
+    *ngIf="formConfig.showStepper"
+    [model]="stepsModel"
+    [(activeIndex)]="activeStepIndex">
+  </p-steps>
+
+  <div *ngIf="formConfig.stepsContent && formConfig.stepsContent.length > 0">
+    <div *ngIf="formConfig.stepsContent[activeStepIndex]?.text">
+      <p>{{ formConfig.stepsContent[activeStepIndex].text }}</p>
+    </div>
+
+    <div
+      *ngIf="formConfig.stepsContent[activeStepIndex]?.radioButtons"
+      class="radioButtons">
+      <p-radioButton
+        class="radioButton"
+        *ngFor="
+          let radio of formConfig.stepsContent[activeStepIndex].radioButtons
+        "
+        [name]="'radios'"
+        [value]="radio.value"
+        [(ngModel)]="selectedRadio"
+        [label]="radio.label"
+        (ngModelChange)="onRadioButtonChange()">
+      </p-radioButton>
+    </div>
+
+    <ng-container #uploadContainer></ng-container>
+
+    <app-generic-selector
+      *ngIf="formConfig.stepsContent[activeStepIndex]?.customSelector"
+      [items]="
+        formConfig.stepsContent[activeStepIndex].customSelector?.items || []
+      "
+      [searchPlaceholder]="
+        formConfig.stepsContent[activeStepIndex].customSelector
+          ?.searchPlaceholder
+      "
+      [displayFields]="
+        formConfig.stepsContent[activeStepIndex].customSelector
+          ?.displayFields || []
+      "
+      [identifier]="
+        formConfig.stepsContent[activeStepIndex].customSelector?.identifier ||
+        ''
+      "
+      [displayTemplate]="
+        formConfig.stepsContent[activeStepIndex].customSelector?.displayTemplate
+      "
+      (selectionChange)="handleCustomSelection($event)">
+    </app-generic-selector>
+
+    <app-form
+      *ngIf="formConfig.stepsContent[activeStepIndex]?.showForm"
+      [form]="form"
+      [formConfig]="formConfig.stepsContent[activeStepIndex].formConfig || []">
+    </app-form>
+  </div>
+
+  <div class="stepper-controls" *ngIf="formConfig.showStepper">
+    <p-button
+      label="Previous"
+      icon="pi pi-chevron-left"
+      (click)="prevStep()"
+      [disabled]="activeStepIndex === 0">
+    </p-button>
+
+    <p-button
+      *ngIf="activeStepIndex < steps.length - 1"
+      label="Next"
+      icon="pi pi-chevron-right"
+      (click)="nextStep()"
+      [disabled]="!isCurrentStepValid()">
+    </p-button>
+
+    <p-button
+      *ngIf="activeStepIndex === steps.length - 1"
+      label="Accept"
+      icon="pi pi-check"
+      (click)="accept()"
+      [disabled]="!form.valid">
+    </p-button>
+  </div>
+
+  <div
+    class="flex justify-content-end gap-2 mt-3"
+    [ngClass]="{ 'stepper-active': formConfig.showStepper }">
+    <p-button
+      *ngFor="let button of formConfig.buttons"
+      [label]="button.label"
+      [severity]="button.severity"
+      (click)="executeAction(button.action)">
+    </p-button>
+  </div>
+</p-dialog>

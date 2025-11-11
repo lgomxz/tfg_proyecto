@@ -1,0 +1,121 @@
+.body {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  overflow: hidden;
+  
+  .leftSide {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    padding-block: 30px;
+    padding-inline: 50px;   
+    
+    h3 {
+      color: #2B2577; 
+      border-bottom: 2px solid #2B2577; 
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      margin-bottom: 15px;
+      line-height: 1.6;
+    }
+    strong {
+      color: #2B2577;
+      background-color: #eaf1ff;
+      padding: 0 5px; 
+      border-radius: 5px; 
+    }
+
+    p:last-of-type {
+      background-color: #ffffff; 
+      border-left: 5px solid #2B2577; 
+      padding: 10px 15px;
+      border-radius: 10px;
+    }
+    .fa-thumbs-up{
+      color: #2B2577;
+      font-size: large;
+    }
+  }
+
+  .rightSide {
+    width: 50%;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    padding-inline: 50px;
+    background: linear-gradient(180deg, #2B2577, #000000);
+    overflow: hidden;
+
+    p{
+      padding: 5px;
+      color: whitesmoke;
+    }
+
+    .emailHelp{
+      margin-top: 10px;
+      padding: 5px;
+      input{
+        color: rgb(94, 94, 94);
+      }
+    }
+    .subjectHelp{
+      display: flex;
+      flex-direction: column;
+      padding: 5px;
+      label{
+        margin-top: 20px;
+        margin-bottom: 10px;
+        color: whitesmoke;
+      }
+      
+      
+    }
+    .textAreaHelp{
+      display: flex;
+      flex-direction: column;
+      padding: 5px;
+      label{
+        margin-top: 20px;
+        margin-bottom: 10px;
+        color: whitesmoke;
+      }
+      textarea {
+        resize: none;
+        width: 100%;
+        overflow-y: scroll;
+  
+        &::-webkit-scrollbar {
+          width: 5px;
+        }
+      
+        &::-webkit-scrollbar-track {
+          background: #f1f1f1;
+        }
+      
+        &::-webkit-scrollbar-thumb {
+          background: #00B2A9;
+        }
+      }
+    }
+   
+    
+    .sendButton{
+      height: 40px;
+      display: flex;
+      justify-content: flex-end;
+      margin-inline: 20px;
+      margin-top: 10px;
+      
+      button{   
+        height: 100%; 
+        border-radius: 3px;
+        background-color: #00B2A9;
+        color: whitesmoke;
+      }
+    }
+  }
+}

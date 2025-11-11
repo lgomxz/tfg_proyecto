@@ -1,0 +1,84 @@
+{
+  "PRIVACY_POLICY": "Política de Privacidad",
+  "PRIVACY_POLICY_INTRODUCTION": "[Nombre de la Entidad] (en adelante, 'la Entidad') informa a los usuarios y clientes sobre su Política de Privacidad en relación con el tratamiento y la protección de los datos personales que puedan ser recabados a través del sitio web [nombre del sitio web] (en adelante, 'el Sitio Web').",
+  "PRIVACY_POLICY_LEGAL_COMPLIANCE": "La Entidad garantiza el cumplimiento de la normativa vigente en materia de protección de datos personales, de conformidad con la Ley Orgánica 3/2018, de 5 de diciembre, de Protección de Datos Personales y garantía de los derechos digitales (LOPDGDD) y el Reglamento (UE) 2016/679 del Parlamento Europeo y del Consejo, de 27 de abril de 2016, relativo a la protección de las personas físicas en lo que respecta al tratamiento de datos personales y a la libre circulación de estos datos (RGPD).",
+  "PRIVACY_POLICY_ACCEPTANCE": "El uso del Sitio Web implica la aceptación de esta Política de Privacidad, así como de las condiciones incluidas en el Aviso Legal.",
+
+  "GENERAL_INFORMATION": "Información General",
+  "GENERAL_INFORMATION_DESCRIPTION": "En cumplimiento con las obligaciones informativas previstas en la LOPDGDD y en la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y Comercio Electrónico (LSSI-CE), se ofrecen los siguientes datos generales del Sitio Web:",
+  "DATA_CONTROLLER": "Responsable del Tratamiento",
+  "ENTITY_TAX_ID": "NIF/CIF",
+  "ENTITY_ADDRESS": "Dirección",
+  "ENTITY_EMAIL": "Correo Electrónico",
+  "ENTITY_WEBSITE": "Sitio Web",
+
+  "TERMS_OF_USE": "Condiciones Generales de Uso",
+  "TERMS_OF_USE_DESCRIPTION": "El objeto de las presentes condiciones generales de uso es regular el acceso y uso del Sitio Web.",
+  "TERMS_OF_USE_MODIFICATIONS": "La Entidad se reserva el derecho de modificar, en cualquier momento y sin previo aviso, la presentación y configuración del Sitio Web, así como los contenidos y servicios que puedan incorporarse.",
+
+  "USER": "Usuario",
+  "USER_CONDITIONS": "El acceso, navegación y uso del Sitio Web, así como el uso de los servicios ofrecidos, confiere la condición de usuario registrado, lo que implica la aceptación de todas las condiciones aquí establecidas.",
+  "USER_ACCESS_RESTRICTIONS": "El Sitio Web de la Entidad está dirigido exclusivamente a estudiantes universitarios y profesionales con fines académicos y de investigación.",
+
+  "WARRANTY_EXCLUSION": "Acceso y Navegación en el Sitio Web: Exclusión de Garantías y Responsabilidad",
+  "WARRANTY_EXCLUSION_DESCRIPTION": "La Entidad no garantiza la continuidad, disponibilidad y utilidad del Sitio Web, sus contenidos o servicios.",
+
+  "DATA_PROTECTION_POLICY": "Política de Privacidad y Protección de Datos",
+  "DATA_PROTECTION_POLICY_DESCRIPTION": "La Entidad se compromete a adoptar las medidas técnicas y organizativas necesarias para garantizar la seguridad de los datos personales.",
+
+  "APPLICABLE_LEGISLATION": "Legislación Aplicable a Esta Política de Privacidad",
+  "LAW_3_2018": "Ley Orgánica 3/2018, de 5 de diciembre, de Protección de Datos Personales y garantía de los derechos digitales.",
+  "GDPR_REGULATION": "Reglamento (UE) 2016/679 relativo a la protección de las personas físicas en lo que respecta al tratamiento de datos personales.",
+  "LSSI_LAW": "Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y Comercio Electrónico (LSSI-CE).",
+
+  "DATA_REGISTRATION": "Registro de Datos Personales",
+  "DATA_REGISTRATION_DESCRIPTION": "Los datos personales recabados a través de los formularios de registro del Sitio Web serán incorporados a un fichero automatizado bajo la responsabilidad del Responsable del Tratamiento.",
+
+  "DATA_COLLECTION_PURPOSE": "Datos Recogidos y Su Uso",
+  "DATA_COLLECTION_PURPOSE_DESCRIPTION": "En el contexto del análisis óseo para la determinación de la edad biológica, la Entidad recopila y trata datos personales necesarios para la realización del análisis.",
+
+  "DATA_PROCESSING_PRINCIPLES": "Principios Aplicables al Tratamiento de Datos",
+  "DATA_PROCESSING_PRINCIPLES_DESCRIPTION": "El tratamiento de los datos personales del usuario estará sujeto a los siguientes principios:",
+  "PRINCIPLE_LEGALITY": "Licitud, Lealtad y Transparencia",
+  "PRINCIPLE_PURPOSE": "Limitación de la Finalidad",
+  "PRINCIPLE_MINIMIZATION": "Minimización de Datos",
+  "PRINCIPLE_ACCURACY": "Exactitud",
+  "PRINCIPLE_STORAGE_LIMITATION": "Limitación del Plazo de Conservación",
+  "PRINCIPLE_INTEGRITY": "Integridad y Confidencialidad",
+  "PRINCIPLE_ACCOUNTABILITY": "Responsabilidad Proactiva",
+
+  "DATA_CATEGORIES": "Categorías de Datos Personales",
+  "DATA_CATEGORIES_DESCRIPTION": "La Entidad trata únicamente datos identificativos y características físicas relevantes para el análisis óseo.",
+
+  "LEGAL_BASIS_PROCESSING": "Base Legal para el Tratamiento de Datos Personales",
+  "LEGAL_BASIS_PROCESSING_DESCRIPTION": "La base legal del tratamiento es el consentimiento del usuario y la necesidad de cumplir con fines académicos y de investigación.",
+
+  "DATA_PROCESSING_PURPOSES": "Finalidades del Tratamiento de Datos Personales",
+  "DATA_PROCESSING_PURPOSES_DESCRIPTION": "Los datos personales son recopilados y gestionados con fines académicos y de investigación científica en relación con el análisis óseo.",
+
+  "DATA_RETENTION_PERIOD": "Plazos de Conservación de los Datos Personales",
+  "DATA_RETENTION_PERIOD_DESCRIPTION": "Los datos serán conservados el tiempo necesario y por un máximo de seis años, salvo que se solicite su eliminación.",
+
+  "DATA_RECIPIENTS": "Destinatarios de los Datos Personales",
+  "DATA_RECIPIENTS_DESCRIPTION": "Los datos no serán compartidos con terceros, salvo por obligación legal o fines de investigación académica.",
+
+  "MINOR_DATA": "Datos Personales de Menores de Edad",
+  "MINOR_DATA_DESCRIPTION": "El tratamiento de datos personales de menores de 14 años requiere el consentimiento de los padres o tutores legales.",
+
+  "DATA_CONFIDENTIALITY_SECURITY": "Confidencialidad y Seguridad de los Datos Personales",
+  "DATA_CONFIDENTIALITY_SECURITY_DESCRIPTION": "La Entidad se compromete a adoptar medidas para evitar accesos no autorizados o pérdidas de datos.",
+
+  "USER_RIGHTS": "Derechos Relacionados con los Datos Personales",
+  "USER_RIGHTS_DESCRIPTION": "Los usuarios tienen derecho a ejercer los siguientes derechos:",
+  "RIGHT_ACCESS": "Derecho de Acceso",
+  "RIGHT_RECTIFICATION": "Derecho de Rectificación",
+  "RIGHT_ERASURE": "Derecho de Supresión",
+  "RIGHT_RESTRICTION": "Derecho a la Limitación del Tratamiento",
+  "RIGHT_PORTABILITY": "Derecho a la Portabilidad de los Datos",
+  "RIGHT_OBJECTION": "Derecho de Oposición",
+  "RIGHT_NO_AUTOMATED_DECISIONS": "Derecho a No Ser Objeto de Decisiones Automatizadas",
+
+  "THIRD_PARTY_LINKS": "Enlaces a Sitios Web de Terceros",
+  "PRIVACY_POLICY_CHANGES": "Cambios en la Política de Privacidad",
+  "LAST_UPDATE": "Última actualización: 15 de agosto de 2024"
+}

@@ -1,0 +1,17 @@
+{
+  "BREADCRUMBS": {
+    "HOME": "Inicio",
+    "PUBIS": "Colecciones",
+    "LABELLING": "Etiquetado",
+    "USERS": "Gestión de Usuarios",
+    "SETTINGS": "Configuración",
+    "TRAINING_TOOL": "Entrenamiento",
+    "DOCUMENTATION": "Documentación",
+    "ESTIMATE_AI": "Estimación IA",
+    "SINGLE_SAMPLE": "Muestra Única",
+    "MULTIPLE_SAMPLES":"Múltiples muestras",
+    "PROFILE":"Perfil",
+    "EXPERIMENTS":"Experimentos"
+
+  }
+}

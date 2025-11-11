@@ -1,0 +1,105 @@
+{
+  "PRIVACY_POLICY": "Privacy Policy",
+  "PRIVACY_POLICY_INTRO": "[Entity Name] (hereinafter referred to as 'the Entity') informs users and customers about its Privacy Policy regarding the processing and protection of personal data that may be collected through the website [website name] (hereinafter referred to as 'the Website').",
+  "PRIVACY_POLICY_LEGAL_COMPLIANCE": "The Entity guarantees compliance with the current regulations on personal data protection, in accordance with Organic Law 3/2018, of December 5, on the Protection of Personal Data and the Guarantee of Digital Rights (LOPDGDD) and Regulation (EU) 2016/679 of the European Parliament and of the Council, of April 27, 2016, on the protection of individuals with regard to the processing of personal data and the free movement of such data (GDPR).",
+  "PRIVACY_POLICY_ACCEPTANCE": "The use of the Website implies the acceptance of this Privacy Policy, as well as the conditions included in the Legal Notice.",
+  
+  "GENERAL_INFORMATION": "General Information",
+  "GENERAL_INFORMATION_DESC": "In accordance with the information obligations provided in the LOPDGDD and in Law 34/2002, of July 11, on Information Society Services and Electronic Commerce (LSSI-CE), the following general data of the Website are provided:",
+  "DATA_CONTROLLER": "Data Controller",
+  "ENTITY_NIF": "NIF/CIF",
+  "ENTITY_ADDRESS": "Address",
+  "ENTITY_EMAIL": "Email",
+  "ENTITY_WEBSITE": "Website",
+
+  "TERMS_OF_USE": "General Terms and Conditions of Use",
+  "TERMS_OF_USE_DESC": "The purpose of these general terms and conditions of use is to regulate access to and use of the Website.",
+  "TERMS_OF_USE_MODIFICATIONS": "The Entity reserves the right to modify, at any time and without prior notice, the presentation and configuration of the Website, as well as the content and services that may be incorporated.",
+
+  "USER": "User",
+  "USER_CONDITIONS": "Access, browsing, and use of the Website, as well as the use of the services offered, confer the condition of registered user, which implies the acceptance of all the conditions established herein.",
+  "USER_ACCESS_RESTRICTIONS": "The Entity's Website is exclusively aimed at university students and professionals for academic and research purposes.",
+
+  "EXCLUSION_OF_GUARANTEES": "Access and Navigation on the Website: Exclusion of Guarantees and Liability",
+  "EXCLUSION_OF_GUARANTEES_DESC": "The Entity does not guarantee the continuity, availability, and usefulness of the Website, its content, or services.",
+
+  "DATA_PROTECTION_POLICY": "Privacy Policy and Data Protection",
+  "DATA_PROTECTION_POLICY_DESC": "The Entity commits to adopting the necessary technical and organizational measures to ensure the security of personal data.",
+
+  "APPLICABLE_LEGISLATION": "Applicable Legislation to This Privacy Policy",
+  "LAW_3_2018": "Organic Law 3/2018, of December 5, on the Protection of Personal Data and the Guarantee of Digital Rights.",
+  "GDPR_REGULATION": "Regulation (EU) 2016/679 on the protection of individuals with regard to the processing of personal data.",
+  "LSSI_LAW": "Law 34/2002, of July 11, on Information Society Services and Electronic Commerce (LSSI-CE).",
+
+  "DATA_REGISTRATION": "Registration of Personal Data",
+  "DATA_REGISTRATION_DESC": "The personal data collected through the Website registration forms will be incorporated into an automated file under the responsibility of the Data Controller.",
+
+  "DATA_COLLECTION_PURPOSE": "Data Collected and Their Use",
+  "DATA_COLLECTION_PURPOSE_DESC": "In the context of bone analysis to determine biological age, the Entity collects and processes personal data necessary for conducting the analysis.",
+
+  "DATA_PROCESSING_PRINCIPLES": "Principles Applicable to Data Processing",
+  "DATA_PROCESSING_PRINCIPLES_DESC": "The processing of the user's personal data will be subject to the following principles:",
+  "PRINCIPLE_LAWFULNESS": "Lawfulness, Fairness, and Transparency",
+  "PRINCIPLE_LAWFULNESS_DESC": "The user's consent is required after clear information about the purposes for which personal data are collected.",
+  "PRINCIPLE_PURPOSE_LIMITATION": "Purpose Limitation",
+  "PRINCIPLE_PURPOSE_LIMITATION_DESC": "Data will be collected for specific, explicit, and legitimate purposes.",
+  "PRINCIPLE_MINIMIZATION": "Data Minimization",
+  "PRINCIPLE_MINIMIZATION_DESC": "Only the data strictly necessary for the established purposes will be collected.",
+  "PRINCIPLE_ACCURACY": "Accuracy",
+  "PRINCIPLE_ACCURACY_DESC": "The data must be accurate and kept up to date.",
+  "PRINCIPLE_STORAGE_LIMITATION": "Storage Limitation",
+  "PRINCIPLE_STORAGE_LIMITATION_DESC": "Data will be kept only for as long as necessary for processing purposes.",
+  "PRINCIPLE_INTEGRITY": "Integrity and Confidentiality",
+  "PRINCIPLE_INTEGRITY_DESC": "Data will be processed securely to protect confidentiality.",
+  "PRINCIPLE_ACCOUNTABILITY": "Proactive Responsibility",
+  "PRINCIPLE_ACCOUNTABILITY_DESC": "The Entity will be responsible for ensuring compliance with these principles.",
+
+  "DATA_CATEGORIES": "Categories of Personal Data",
+  "DATA_CATEGORIES_DESC": "The Entity processes only identification data and relevant physical characteristics for bone analysis.",
+
+  "LEGAL_BASIS_FOR_PROCESSING": "Legal Basis for the Processing of Personal Data",
+  "LEGAL_BASIS_FOR_PROCESSING_DESC": "The legal basis for processing is the user's consent and the need to fulfill academic and research purposes.",
+
+  "PURPOSE_OF_PROCESSING": "Purposes of Personal Data Processing",
+  "PURPOSE_OF_PROCESSING_DESC": "Personal data are collected and managed for academic and scientific research related to bone analysis.",
+
+  "DATA_RETENTION_PERIOD": "Personal Data Retention Periods",
+  "DATA_RETENTION_PERIOD_DESC": "Data will be retained for as long as necessary and for a maximum of six years unless deletion is requested.",
+
+  "DATA_RECIPIENTS": "Recipients of Personal Data",
+  "DATA_RECIPIENTS_DESC": "Data will not be shared with third parties, except for legal or academic research purposes.",
+
+  "MINORS_PERSONAL_DATA": "Personal Data of Minors",
+  "MINORS_PERSONAL_DATA_DESC": "Processing of minors' personal data under 14 requires parental or legal guardian consent.",
+
+  "CONFIDENTIALITY_AND_SECURITY": "Confidentiality and Security of Personal Data",
+  "CONFIDENTIALITY_AND_SECURITY_DESC": "The Entity commits to taking measures to prevent unauthorized access or loss of data.",
+
+  "USER_RIGHTS": "Rights Related to Personal Data",
+  "USER_RIGHTS_DESC": "Users have the right to exercise the following rights:",
+  "RIGHT_ACCESS": "Right of Access",
+  "RIGHT_ACCESS_DESC": "Obtain confirmation of whether their personal data is being processed.",
+  "RIGHT_RECTIFICATION": "Right to Rectification",
+  "RIGHT_RECTIFICATION_DESC": "Request correction of inaccurate or incomplete data.",
+  "RIGHT_ERASURE": "Right to Erasure",
+  "RIGHT_ERASURE_DESC": "Request the deletion of personal data when no longer needed.",
+  "RIGHT_RESTRICTION": "Right to Restriction of Processing",
+  "RIGHT_RESTRICTION_DESC": "Request processing limitations under certain circumstances.",
+  "RIGHT_PORTABILITY": "Right to Data Portability",
+  "RIGHT_PORTABILITY_DESC": "Request the transfer of data to another controller.",
+  "RIGHT_OBJECT": "Right to Object",
+  "RIGHT_OBJECT_DESC": "Object to data processing for legitimate reasons.",
+  "RIGHT_NO_AUTOMATED_DECISIONS": "Right Not to Be Subject to Automated Decisions",
+  "RIGHT_NO_AUTOMATED_DECISIONS_DESC": "Not to be subject to decisions based solely on automated processing.",
+  "USER_RIGHTS_REQUEST": "To exercise these rights, send a written request with an ID copy.",
+
+  "THIRD_PARTY_LINKS": "Links to Third-Party Websites",
+  "THIRD_PARTY_LINKS_DESC": "The Website may contain links to third-party websites not controlled by the Entity.",
+
+  "PRIVACY_POLICY_CHANGES": "Changes to the Privacy Policy",
+  "PRIVACY_POLICY_CHANGES_DESC": "The Entity reserves the right to modify this Privacy Policy at any time.",
+
+  "PRIVACY_POLICY_ACCEPTANCE_DESC": "By using the Website, the user accepts this Privacy Policy.",
+  "PRIVACY_POLICY_CONTACT": "For questions, contact the Entity using the provided information.",
+  "LAST_UPDATED": "Last updated: August 15, 2024"
+}

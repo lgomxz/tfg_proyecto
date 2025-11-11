@@ -1,0 +1,12 @@
+{
+  "CONTACT_SUPPORT": "Contacto y Soporte",
+  "INTRO_TEXT": "Si tienes alguna pregunta o necesitas asistencia con nuestro proyecto, estamos aquí para ayudarte. Nuestro objetivo es proporcionar un soporte integral para atender cualquier consulta o problema que puedas encontrar.",
+  "REVIEW_DOC": "Antes de ponerte en contacto, te animamos a revisar nuestra sección de Documentación.",
+  "DOC_DETAIL": "Contiene información detallada que ya podría abordar tu pregunta o proporcionar la orientación que necesitas. La Documentación incluye explicaciones sobre cómo usar diversas herramientas, descripciones de características y mejores prácticas generales.",
+  "SUPPORT_FORM": "Si no puedes encontrar la respuesta en la Documentación, por favor utiliza el formulario de soporte en el lado derecho de esta página.",
+  "FORM_DETAIL": "Al completar el formulario, incluye la mayor cantidad de detalles posible sobre tu problema o pregunta. Esto nos ayudará a proporcionar una respuesta más precisa y oportuna. Asegúrate de especificar la naturaleza del problema, los pasos que has seguido y cualquier mensaje de error relevante.",
+  "EXPERIENCE_IMPORTANCE": "Tu experiencia es importante para nosotros, y queremos asegurarnos de que recibas el soporte que necesitas para aprovechar al máximo nuestro proyecto.",
+  "SUBJECT": "Asunto",
+  "DESCRIPTION_LABEL": "Descripción (máx. 2000 caracteres)",
+  "SEND_BUTTON": "Enviar"
+}

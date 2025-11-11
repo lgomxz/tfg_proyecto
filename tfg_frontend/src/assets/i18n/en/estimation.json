@@ -1,0 +1,20 @@
+{
+  "HEADER": {
+    "COLLECTIONS": "Collections"
+  },
+  "RIGHT_PANEL": {
+    "NO_SELECTION": "Select a sample to view details here.",
+    "ANALYZE_BUTTON": "ANALYZE",
+    "TODDS_PHASE": "Todd's Phase:",
+    "ESTIMATED_AGE": "Estimated Age:",
+    "ANALYZING": "Analyzing..."
+  },
+  "ID": "ID",
+  "COLLECTION_NAME": "Collection Name",
+  "PUBIS_SHORT_ID": "Pubis ID",
+  "SUBJECT_ID": "Subject ID",
+  "LABEL_ID": "Label ID",
+  "LABEL_DATE": "Label Date",
+  "PREDICTION": "Prediction",
+  "ESTIMATED_AGE_COLUMN": "Estimated Age"
+}

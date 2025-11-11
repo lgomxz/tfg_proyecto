@@ -1,0 +1,28 @@
+algorithm = Fuzzy Rule Learning, NSLV Algorithm
+inputData = "fileNameTrain" "fileNameModel" "fileNameTest"
+outputData = "fileNameResultTrain" "fileNameResultTest" "fileNameDebug"  
+
+seed = 1286082570
+Population Size = -1
+Number of Iterations Allowed without Change = 500
+Learning = 1
+Cuda - HomogeneousLabel(1-Yes;0-No) = 0
+Number of labels of inputs = 5
+Number of labels of output = 5
+Shift porcent of half label for left/center/right executions = 35
+Clasificacion(1)-Regresion(0) = 1
+Initial Probability for binary population = 0.9
+Crossover Probability for binary population = 0.25
+Mutation Probability for binary population = 0.5
+Mutation Probability for each element of binary individual = 0.17
+Initial Probability for integer population = 0.5
+Crossover Probability for integer population = 0.0
+Mutation Probability for integer population = 0.5
+Mutation Probability for each element of integer individual = 0.01
+Initial Probability for real population = 0.0
+Crossover Probability for real population = 0.25
+Mutation Probability for real population = 0.5
+Mutation Probability for each element of real individual = 0.14
+
+Alpha = 0.5
+costMatrix = "./costMatrix.txt"

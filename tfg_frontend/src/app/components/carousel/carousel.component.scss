@@ -1,0 +1,36 @@
+
+.mx-auto {
+  display: flex;
+  justify-content: center;
+
+  img {
+    width: 90%;
+  }
+}
+.font-medium {
+  display: flex;
+  justify-content: center;
+}
+
+.zoom-container {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 400px;
+}
+
+.zoom-image {
+  transition: transform 0.1s ease;
+  width: 100%;
+  height: auto;
+  position: absolute;
+  cursor: zoom-in;
+}
+
+.zoom-image.zoomed {
+  cursor: zoom-in; 
+}
+
+.zoom-image.grabbing {
+  cursor: grabbing;
+}

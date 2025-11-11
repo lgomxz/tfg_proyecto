@@ -1,0 +1,20 @@
+:host ::ng-deep .p-breadcrumb {
+  font-size: 14px;
+  span, svg{
+    color: #2B2577 !important;
+  }
+}
+
+:host ::ng-deep .p-breadcrumb .p-menuitem-link {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+
+}
+
+
+:host ::ng-deep .p-breadcrumb .p-menuitem-icon {
+  margin-right: 6px; 
+  font-size: 1.1em;
+}

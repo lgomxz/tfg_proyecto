@@ -1,0 +1,85 @@
+:host {
+  display: block;
+
+  .generic-selector {
+    display: flex;
+    flex-direction: column;
+
+    .input-container {
+      display: flex;
+      align-items: flex-end;
+      gap: 1rem;
+      margin-block: 1rem;
+
+      .search-input {
+        flex: 1;
+        padding: 0.6rem 0.9rem;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 0.95rem;
+        transition: border-color 0.2s ease;
+
+        &:focus {
+          outline: none;
+          border-color: #888;
+        }
+      }
+
+      .select-all-button {
+        height: 2.5rem;
+        white-space: nowrap;
+      }
+    }
+
+    .selector-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1rem;
+      border: 1px solid #e0e0e0;
+      border-radius: 10px;
+      background-color: #fff;
+      margin-bottom: 0.75rem;
+      transition: box-shadow 0.25s ease, border 0.25s ease;
+
+      &:hover {
+        border-color: #ccc;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      }
+
+      p-checkbox {
+        margin-top: 0.3rem; // para alinear verticalmente mejor el checkbox
+      }
+
+      .item-content {
+        display: flex;
+        flex-direction: column;
+
+        .item-name {
+          font-weight: 600;
+          font-size: 1rem;
+          color: #222;
+          line-height: 1.2;
+        }
+
+        .item-secondary {
+          font-size: 0.85rem;
+          color: #888;
+          margin-top: 0.25rem;
+        }
+      }
+    }
+
+    max-height: 260px;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #c7c7c7;
+      border-radius: 3px;
+    }
+  }
+}

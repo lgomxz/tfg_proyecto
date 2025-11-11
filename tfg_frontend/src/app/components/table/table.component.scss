@@ -1,0 +1,163 @@
+.mat-mdc-table {
+  width: 100%;
+
+  tr {
+    position: relative;
+    user-select: none;
+
+    &:hover {
+      td {
+        border-block: 2px solid #00B2A9;
+        background-color: #00b2a91d;
+        cursor: pointer; 
+      }
+    }
+
+    &.selected {
+      background-color: #00b2a91d; 
+    }
+  }  
+
+  th {
+    background-color: #2B2577; 
+    color: white; 
+    font-size: larger;
+    text-align: center;
+    border-bottom: 2px solid #2B2577; 
+    height: 60px; 
+
+    ::ng-deep .mat-sort-header-arrow {
+      color: white !important;
+    }
+    
+  }
+
+  td {
+    text-align: center;
+    height: 60px;
+    
+    .chevron_button {
+      border: none;
+      color: #2B2577;
+    }
+
+    .description-content {
+      width: 100%; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      margin: 10px; 
+      padding: 10px; 
+    }
+  }
+
+  .userInfo {
+    display: flex;
+    justify-content: center;
+    
+    button {
+      font-size: 22px;
+      border: none;
+    }
+  }
+
+  .actionIcons, .userIcons {
+    display: flex;
+    justify-content: center;
+  }
+
+  tr.example-detail-row {
+    overflow: hidden; // Añadir overflow oculto
+  }
+
+  .example-element-detail {
+    overflow: hidden; // Para ocultar contenido cuando se colapsa
+  }
+
+  .action-icon {
+    opacity: 0; 
+    transition: opacity 0.1s ease; 
+  }
+
+  tr:hover .action-icon,
+  tr.selected .action-icon {
+    opacity: 1; 
+  }
+
+  button {
+    margin-inline: 15px;
+    padding: 4px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color: transparent;
+
+    &.accept-button {
+      background-color: #4139a8;  
+      border: 2px solid #2B2577;
+      padding: 8px;
+      color: white;
+
+      &:hover {
+        background-color: #564dc8;  
+        border: 2px solid #2B2577;
+      }
+    }
+
+    &.decline-button {
+      background-color: #f66c77; 
+      border: 2px solid #dc3545; 
+      padding: 8px;
+      color: white;
+      &:hover {
+        background-color: #f5c6cb; 
+        border-color: #c82333; 
+      }
+    }
+
+    &.edit-button {
+      border: none; 
+      i, .mat-icon {  
+        color: #2B2577;
+        &:hover {
+          color: #564dc8;
+        }
+      }
+    }
+
+    &.delete-button {
+      border: none; 
+      i, .mat-icon {
+        color: #dc3545;
+        &:hover {
+          color: #f66c77; 
+        }
+      }
+    }
+  }
+}
+
+.flat-table-row {
+  cursor: default !important;
+  background-color: transparent !important;
+  pointer-events: none; // evita clics, aunque Angular ya lo protege
+}
+
+.flat-table-row:hover {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+::ng-deep .mat-mdc-table .cell-red {
+  color: red !important;
+  font-weight: bold;
+}
+
+::ng-deep .mat-mdc-table .cell-green {
+  color: #2ecc71 !important;
+  font-weight: bold;
+}
+

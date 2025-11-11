@@ -1,0 +1,17 @@
+.mathjax-tooltip {
+  background: #e5e4f5;
+  color: #1a1a1a;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 2px solid #2B2577;
+  box-shadow: 0 6px 14px rgba(43, 37, 119, 0.15);
+  font-size: 1rem;
+  line-height: 1.5;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+
+.mathjax-tooltip.show {
+  opacity: 1;
+}

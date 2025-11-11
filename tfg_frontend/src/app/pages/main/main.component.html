@@ -1,0 +1,77 @@
+<div class="body">
+  <div class="utilityContanier">
+    <input
+      type="text"
+      [(ngModel)]="searchTerm"
+      [placeholder]="'SEARCHBAR.SEARCH' | translate"
+      class="search-input" />
+
+    <div class="adminButtons">
+      <button
+        *ngIf="showAdminButtons"
+        class="newCollectionButton"
+        mat-raised-button
+        color="accent"
+        (click)="showDialog('new')">
+        {{ 'BUTTONS.NEW' | translate }}
+      </button>
+
+      <button
+        *ngIf="showAdminButtons"
+        mat-raised-button
+        color="primary"
+        (click)="toggleAssignMode()">
+        {{ label_button }}
+      </button>
+
+      <!-- Dialogs -->
+      <app-new-dialog
+        [(visible)]="showNewCollectionDialog"
+        [formConfig]="newCollectionDialogConfig"
+        (acceptForm)="accept($event)"></app-new-dialog>
+
+      <app-new-dialog
+        [(visible)]="showDeleteCollectionDialog"
+        [formConfig]="deleteCollectionDialogConfig"></app-new-dialog>
+
+      <app-new-dialog
+        [(visible)]="showAssignDialog"
+        [formConfig]="assignCollectionDialogConfig"
+        (selectionChanged)="getSelectedUsers($event)"></app-new-dialog>
+    </div>
+  </div>
+
+  <!-- PrimeNG Tabs -->
+  <p-tabView [(activeIndex)]="activeTabIndex">
+    <!-- Tab 1: My Collections -->
+    <p-tabPanel header="{{ 'TAB.MY_COLLECTIONS' | translate }}">
+      <app-table
+        [tableData]="filteredCollections"
+        [tableConfig]="collectionsColumns"
+        (selectedRow)="selectRow($event)"
+        (doubleClick)="openSamples($event)"
+        (delete)="onDeleteRow($event)"
+        (edit)="onEditRow($event)"
+        [hasCheckboxColumn]="isAssignMode"
+        (selectedRowsChange)="onSelectedCollectionsChange($event)"
+        [selectedRows]="selectedCollections"></app-table>
+    </p-tabPanel>
+
+    <!-- Tab 2: All Collections (Only visible to admins) -->
+    <p-tabPanel
+      *ngIf="showAdminButtons"
+      header="{{ 'TAB.ALL_COLLECTIONS' | translate }}">
+      <app-table
+        [tableData]="filteredCollections"
+        [tableConfig]="collectionsColumns"
+        [showActions]="showAdminButtons"
+        (selectedRow)="selectRow($event)"
+        (doubleClick)="openSamples($event)"
+        (delete)="onDeleteRow($event)"
+        (edit)="onEditRow($event)"
+        [hasCheckboxColumn]="isAssignMode"
+        (selectedRowsChange)="onSelectedCollectionsChange($event)"
+        [selectedRows]="selectedCollections"></app-table>
+    </p-tabPanel>
+  </p-tabView>
+</div>

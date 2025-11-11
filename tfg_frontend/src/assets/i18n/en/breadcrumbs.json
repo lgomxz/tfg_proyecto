@@ -1,0 +1,17 @@
+{
+  "BREADCRUMBS": {
+    "HOME": "Home",
+    "PUBIS": "Pubis Collections",
+    "LABELLING": "Labelling",
+    "USERS": "Users Center",
+    "SETTINGS": "Settings",
+    "TRAINING_TOOL": "Training tool",
+    "DOCUMENTATION":"Documentation",
+    "ESTIMATE_AI": "AI Estimation ",
+    "SINGLE_SAMPLE":"Single Sample",
+    "MULTIPLE_SAMPLES":"Multiple Samples",
+    "PROFILE":"Profile",
+    "EXPERIMENTS":"Experiments"
+
+  }
+}

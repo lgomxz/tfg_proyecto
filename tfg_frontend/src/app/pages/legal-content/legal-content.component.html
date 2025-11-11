@@ -1,0 +1,11 @@
+<div *ngIf="content$ | async as translatedContent; else loading">
+  <!-- Mostrar contenido traducido -->
+  <div [innerHTML]="translatedContent" class="legal-content"></div>
+</div>
+
+<ng-template #loading>
+  <!-- Mostrar mensaje de carga -->
+  <div class="loading-message">
+    <p>Loading content...</p>
+  </div>
+</ng-template>

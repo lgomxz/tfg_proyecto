@@ -1,0 +1,122 @@
+import { MigrationInterface, QueryRunner } from "typeorm";
+
+export class Migrations1755026447362 implements MigrationInterface {
+    name = 'Migrations1755026447362'
+
+    public async up(queryRunner: QueryRunner): Promise<void> {
+        await queryRunner.query(`CREATE TABLE \`collection_pubis\` (\`pubis_id\` varchar(255) NOT NULL, \`collection_id\` varchar(36) NULL, PRIMARY KEY (\`pubis_id\`)) ENGINE=InnoDB`);
+        await queryRunner.query(`ALTER TABLE \`label\` DROP COLUMN \`estimatedAgeByPractitioner\``);
+        await queryRunner.query(`ALTER TABLE \`collection_pubis\` DROP PRIMARY KEY`);
+        await queryRunner.query(`ALTER TABLE \`collection_pubis\` ADD PRIMARY KEY (\`collection_id\`, \`pubis_id\`)`);
+        await queryRunner.query(`ALTER TABLE \`subject\` CHANGE \`acquisition_year\` \`acquisition_year\` timestamp NOT NULL`);
+        await queryRunner.query(`ALTER TABLE \`collection\` CHANGE \`create_date\` \`create_date\` timestamp NOT NULL`);
+        await queryRunner.query(`ALTER TABLE \`user\` DROP FOREIGN KEY \`FK_c28e52f758e7bbc53828db92194\``);
+        await queryRunner.query(`ALTER TABLE \`user\` CHANGE \`photoUrl\` \`photoUrl\` varchar(500) NULL`);
+        await queryRunner.query(`ALTER TABLE \`user\` CHANGE \`resetPasswordToken\` \`resetPasswordToken\` varchar(200) NULL`);
+        await queryRunner.query(`ALTER TABLE \`user\` CHANGE \`resetPasswordExpires\` \`resetPasswordExpires\` timestamp NULL`);
+        await queryRunner.query(`ALTER TABLE \`user\` CHANGE \`roleId\` \`roleId\` varchar(36) NULL`);
+        await queryRunner.query(`ALTER TABLE \`experiment\` DROP FOREIGN KEY \`FK_efd004fa410567831df8dd764fb\``);
+        await queryRunner.query(`ALTER TABLE \`experiment\` DROP FOREIGN KEY \`FK_f2ec084b78841e525e94dcbe443\``);
+        await queryRunner.query(`ALTER TABLE \`experiment\` CHANGE \`create_date\` \`create_date\` timestamp NOT NULL`);
+        await queryRunner.query(`ALTER TABLE \`experiment\` CHANGE \`userId\` \`userId\` varchar(36) NULL`);
+        await queryRunner.query(`ALTER TABLE \`experiment\` CHANGE \`pubisId\` \`pubisId\` varchar(36) NULL`);
+        await queryRunner.query(`ALTER TABLE \`file\` DROP FOREIGN KEY \`FK_067ff8047dc5c092e237a3cc6a5\``);
+        await queryRunner.query(`ALTER TABLE \`file\` CHANGE \`digitalModelId\` \`digitalModelId\` int NULL`);
+        await queryRunner.query(`ALTER TABLE \`digital_model\` DROP FOREIGN KEY \`FK_b16581ba6e5c4c4a0734160eb05\``);
+        await queryRunner.query(`ALTER TABLE \`digital_model\` CHANGE \`acquisition_date\` \`acquisition_date\` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP`);
+        await queryRunner.query(`ALTER TABLE \`digital_model\` CHANGE \`pubisId\` \`pubisId\` varchar(36) NULL`);
+        await queryRunner.query(`ALTER TABLE \`pubis\` DROP FOREIGN KEY \`FK_7d3c9f0e5ba514e9576837aaa85\``);
+        await queryRunner.query(`ALTER TABLE \`pubis\` CHANGE \`subjectShortId\` \`subjectShortId\` varchar(8) NULL`);
+        await queryRunner.query(`ALTER TABLE \`label\` CHANGE \`label_date\` \`label_date\` timestamp NOT NULL`);
+        await queryRunner.query(`ALTER TABLE \`pubis_label\` DROP FOREIGN KEY \`FK_8fed21fc164c6d4245148bb0927\``);
+        await queryRunner.query(`ALTER TABLE \`pubis_label\` DROP FOREIGN KEY \`FK_3f5f88283df5a86f323fa60a3ad\``);
+        await queryRunner.query(`ALTER TABLE \`pubis_label\` DROP FOREIGN KEY \`FK_2b5247a84c2cce97118822feff4\``);
+        await queryRunner.query(`ALTER TABLE \`pubis_label\` CHANGE \`score\` \`score\` float NULL`);
+        await queryRunner.query(`ALTER TABLE \`pubis_label\` CHANGE \`pubisId\` \`pubisId\` varchar(36) NULL`);
+        await queryRunner.query(`ALTER TABLE \`pubis_label\` CHANGE \`labelId\` \`labelId\` varchar(36) NULL`);
+        await queryRunner.query(`ALTER TABLE \`pubis_label\` CHANGE \`userId\` \`userId\` varchar(36) NULL`);
+        await queryRunner.query(`ALTER TABLE \`collection_pubis\` DROP PRIMARY KEY`);
+        await queryRunner.query(`ALTER TABLE \`collection_pubis\` ADD PRIMARY KEY (\`pubis_id\`)`);
+        await queryRunner.query(`ALTER TABLE \`collection_pubis\` CHANGE \`collection_id\` \`collection_id\` varchar(36) NOT NULL`);
+        await queryRunner.query(`ALTER TABLE \`collection_pubis\` DROP PRIMARY KEY`);
+        await queryRunner.query(`ALTER TABLE \`collection_pubis\` ADD PRIMARY KEY (\`pubis_id\`, \`collection_id\`)`);
+        await queryRunner.query(`ALTER TABLE \`collection_pubis\` DROP PRIMARY KEY`);
+        await queryRunner.query(`ALTER TABLE \`collection_pubis\` ADD PRIMARY KEY (\`collection_id\`)`);
+        await queryRunner.query(`ALTER TABLE \`collection_pubis\` DROP COLUMN \`pubis_id\``);
+        await queryRunner.query(`ALTER TABLE \`collection_pubis\` ADD \`pubis_id\` varchar(36) NOT NULL`);
+        await queryRunner.query(`ALTER TABLE \`collection_pubis\` DROP PRIMARY KEY`);
+        await queryRunner.query(`ALTER TABLE \`collection_pubis\` ADD PRIMARY KEY (\`collection_id\`, \`pubis_id\`)`);
+        await queryRunner.query(`CREATE INDEX \`IDX_858ebb1bed993d56ac98030423\` ON \`collection_pubis\` (\`collection_id\`)`);
+        await queryRunner.query(`CREATE INDEX \`IDX_21e37c663046bb5524e26817c9\` ON \`collection_pubis\` (\`pubis_id\`)`);
+        await queryRunner.query(`ALTER TABLE \`user\` ADD CONSTRAINT \`FK_c28e52f758e7bbc53828db92194\` FOREIGN KEY (\`roleId\`) REFERENCES \`role\`(\`id\`) ON DELETE NO ACTION ON UPDATE NO ACTION`);
+        await queryRunner.query(`ALTER TABLE \`experiment\` ADD CONSTRAINT \`FK_efd004fa410567831df8dd764fb\` FOREIGN KEY (\`userId\`) REFERENCES \`user\`(\`id\`) ON DELETE NO ACTION ON UPDATE NO ACTION`);
+        await queryRunner.query(`ALTER TABLE \`experiment\` ADD CONSTRAINT \`FK_f2ec084b78841e525e94dcbe443\` FOREIGN KEY (\`pubisId\`) REFERENCES \`pubis\`(\`id\`) ON DELETE NO ACTION ON UPDATE NO ACTION`);
+        await queryRunner.query(`ALTER TABLE \`file\` ADD CONSTRAINT \`FK_067ff8047dc5c092e237a3cc6a5\` FOREIGN KEY (\`digitalModelId\`) REFERENCES \`digital_model\`(\`id\`) ON DELETE NO ACTION ON UPDATE NO ACTION`);
+        await queryRunner.query(`ALTER TABLE \`digital_model\` ADD CONSTRAINT \`FK_b16581ba6e5c4c4a0734160eb05\` FOREIGN KEY (\`pubisId\`) REFERENCES \`pubis\`(\`id\`) ON DELETE NO ACTION ON UPDATE NO ACTION`);
+        await queryRunner.query(`ALTER TABLE \`pubis\` ADD CONSTRAINT \`FK_7d3c9f0e5ba514e9576837aaa85\` FOREIGN KEY (\`subjectShortId\`) REFERENCES \`subject\`(\`shortId\`) ON DELETE NO ACTION ON UPDATE NO ACTION`);
+        await queryRunner.query(`ALTER TABLE \`pubis_label\` ADD CONSTRAINT \`FK_8fed21fc164c6d4245148bb0927\` FOREIGN KEY (\`pubisId\`) REFERENCES \`pubis\`(\`id\`) ON DELETE CASCADE ON UPDATE NO ACTION`);
+        await queryRunner.query(`ALTER TABLE \`pubis_label\` ADD CONSTRAINT \`FK_3f5f88283df5a86f323fa60a3ad\` FOREIGN KEY (\`labelId\`) REFERENCES \`label\`(\`id\`) ON DELETE NO ACTION ON UPDATE NO ACTION`);
+        await queryRunner.query(`ALTER TABLE \`pubis_label\` ADD CONSTRAINT \`FK_2b5247a84c2cce97118822feff4\` FOREIGN KEY (\`userId\`) REFERENCES \`user\`(\`id\`) ON DELETE CASCADE ON UPDATE NO ACTION`);
+        await queryRunner.query(`ALTER TABLE \`collection_pubis\` ADD CONSTRAINT \`FK_858ebb1bed993d56ac980304239\` FOREIGN KEY (\`collection_id\`) REFERENCES \`collection\`(\`id\`) ON DELETE NO ACTION ON UPDATE NO ACTION`);
+        await queryRunner.query(`ALTER TABLE \`collection_pubis\` ADD CONSTRAINT \`FK_21e37c663046bb5524e26817c9a\` FOREIGN KEY (\`pubis_id\`) REFERENCES \`pubis\`(\`id\`) ON DELETE NO ACTION ON UPDATE NO ACTION`);
+    }
+
+    public async down(queryRunner: QueryRunner): Promise<void> {
+        await queryRunner.query(`ALTER TABLE \`collection_pubis\` DROP FOREIGN KEY \`FK_21e37c663046bb5524e26817c9a\``);
+        await queryRunner.query(`ALTER TABLE \`collection_pubis\` DROP FOREIGN KEY \`FK_858ebb1bed993d56ac980304239\``);
+        await queryRunner.query(`ALTER TABLE \`pubis_label\` DROP FOREIGN KEY \`FK_2b5247a84c2cce97118822feff4\``);
+        await queryRunner.query(`ALTER TABLE \`pubis_label\` DROP FOREIGN KEY \`FK_3f5f88283df5a86f323fa60a3ad\``);
+        await queryRunner.query(`ALTER TABLE \`pubis_label\` DROP FOREIGN KEY \`FK_8fed21fc164c6d4245148bb0927\``);
+        await queryRunner.query(`ALTER TABLE \`pubis\` DROP FOREIGN KEY \`FK_7d3c9f0e5ba514e9576837aaa85\``);
+        await queryRunner.query(`ALTER TABLE \`digital_model\` DROP FOREIGN KEY \`FK_b16581ba6e5c4c4a0734160eb05\``);
+        await queryRunner.query(`ALTER TABLE \`file\` DROP FOREIGN KEY \`FK_067ff8047dc5c092e237a3cc6a5\``);
+        await queryRunner.query(`ALTER TABLE \`experiment\` DROP FOREIGN KEY \`FK_f2ec084b78841e525e94dcbe443\``);
+        await queryRunner.query(`ALTER TABLE \`experiment\` DROP FOREIGN KEY \`FK_efd004fa410567831df8dd764fb\``);
+        await queryRunner.query(`ALTER TABLE \`user\` DROP FOREIGN KEY \`FK_c28e52f758e7bbc53828db92194\``);
+        await queryRunner.query(`DROP INDEX \`IDX_21e37c663046bb5524e26817c9\` ON \`collection_pubis\``);
+        await queryRunner.query(`DROP INDEX \`IDX_858ebb1bed993d56ac98030423\` ON \`collection_pubis\``);
+        await queryRunner.query(`ALTER TABLE \`collection_pubis\` DROP PRIMARY KEY`);
+        await queryRunner.query(`ALTER TABLE \`collection_pubis\` ADD PRIMARY KEY (\`collection_id\`)`);
+        await queryRunner.query(`ALTER TABLE \`collection_pubis\` DROP COLUMN \`pubis_id\``);
+        await queryRunner.query(`ALTER TABLE \`collection_pubis\` ADD \`pubis_id\` varchar(255) NOT NULL`);
+        await queryRunner.query(`ALTER TABLE \`collection_pubis\` DROP PRIMARY KEY`);
+        await queryRunner.query(`ALTER TABLE \`collection_pubis\` ADD PRIMARY KEY (\`pubis_id\`, \`collection_id\`)`);
+        await queryRunner.query(`ALTER TABLE \`collection_pubis\` DROP PRIMARY KEY`);
+        await queryRunner.query(`ALTER TABLE \`collection_pubis\` ADD PRIMARY KEY (\`pubis_id\`)`);
+        await queryRunner.query(`ALTER TABLE \`collection_pubis\` CHANGE \`collection_id\` \`collection_id\` varchar(36) NULL`);
+        await queryRunner.query(`ALTER TABLE \`collection_pubis\` DROP PRIMARY KEY`);
+        await queryRunner.query(`ALTER TABLE \`collection_pubis\` ADD PRIMARY KEY (\`pubis_id\`, \`collection_id\`)`);
+        await queryRunner.query(`ALTER TABLE \`pubis_label\` CHANGE \`userId\` \`userId\` varchar(36) NULL DEFAULT 'NULL'`);
+        await queryRunner.query(`ALTER TABLE \`pubis_label\` CHANGE \`labelId\` \`labelId\` varchar(36) NULL DEFAULT 'NULL'`);
+        await queryRunner.query(`ALTER TABLE \`pubis_label\` CHANGE \`pubisId\` \`pubisId\` varchar(36) NULL DEFAULT 'NULL'`);
+        await queryRunner.query(`ALTER TABLE \`pubis_label\` CHANGE \`score\` \`score\` float(12) NULL DEFAULT 'NULL'`);
+        await queryRunner.query(`ALTER TABLE \`pubis_label\` ADD CONSTRAINT \`FK_2b5247a84c2cce97118822feff4\` FOREIGN KEY (\`userId\`) REFERENCES \`user\`(\`id\`) ON DELETE CASCADE ON UPDATE NO ACTION`);
+        await queryRunner.query(`ALTER TABLE \`pubis_label\` ADD CONSTRAINT \`FK_3f5f88283df5a86f323fa60a3ad\` FOREIGN KEY (\`labelId\`) REFERENCES \`label\`(\`id\`) ON DELETE NO ACTION ON UPDATE NO ACTION`);
+        await queryRunner.query(`ALTER TABLE \`pubis_label\` ADD CONSTRAINT \`FK_8fed21fc164c6d4245148bb0927\` FOREIGN KEY (\`pubisId\`) REFERENCES \`pubis\`(\`id\`) ON DELETE CASCADE ON UPDATE NO ACTION`);
+        await queryRunner.query(`ALTER TABLE \`label\` CHANGE \`label_date\` \`label_date\` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP() ON UPDATE CURRENT_TIMESTAMP()`);
+        await queryRunner.query(`ALTER TABLE \`pubis\` CHANGE \`subjectShortId\` \`subjectShortId\` varchar(8) NULL DEFAULT 'NULL'`);
+        await queryRunner.query(`ALTER TABLE \`pubis\` ADD CONSTRAINT \`FK_7d3c9f0e5ba514e9576837aaa85\` FOREIGN KEY (\`subjectShortId\`) REFERENCES \`subject\`(\`shortId\`) ON DELETE NO ACTION ON UPDATE NO ACTION`);
+        await queryRunner.query(`ALTER TABLE \`digital_model\` CHANGE \`pubisId\` \`pubisId\` varchar(36) NULL DEFAULT 'NULL'`);
+        await queryRunner.query(`ALTER TABLE \`digital_model\` CHANGE \`acquisition_date\` \`acquisition_date\` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP()`);
+        await queryRunner.query(`ALTER TABLE \`digital_model\` ADD CONSTRAINT \`FK_b16581ba6e5c4c4a0734160eb05\` FOREIGN KEY (\`pubisId\`) REFERENCES \`pubis\`(\`id\`) ON DELETE NO ACTION ON UPDATE NO ACTION`);
+        await queryRunner.query(`ALTER TABLE \`file\` CHANGE \`digitalModelId\` \`digitalModelId\` int NULL DEFAULT 'NULL'`);
+        await queryRunner.query(`ALTER TABLE \`file\` ADD CONSTRAINT \`FK_067ff8047dc5c092e237a3cc6a5\` FOREIGN KEY (\`digitalModelId\`) REFERENCES \`digital_model\`(\`id\`) ON DELETE NO ACTION ON UPDATE NO ACTION`);
+        await queryRunner.query(`ALTER TABLE \`experiment\` CHANGE \`pubisId\` \`pubisId\` varchar(36) NULL DEFAULT 'NULL'`);
+        await queryRunner.query(`ALTER TABLE \`experiment\` CHANGE \`userId\` \`userId\` varchar(36) NULL DEFAULT 'NULL'`);
+        await queryRunner.query(`ALTER TABLE \`experiment\` CHANGE \`create_date\` \`create_date\` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP() ON UPDATE CURRENT_TIMESTAMP()`);
+        await queryRunner.query(`ALTER TABLE \`experiment\` ADD CONSTRAINT \`FK_f2ec084b78841e525e94dcbe443\` FOREIGN KEY (\`pubisId\`) REFERENCES \`pubis\`(\`id\`) ON DELETE NO ACTION ON UPDATE NO ACTION`);
+        await queryRunner.query(`ALTER TABLE \`experiment\` ADD CONSTRAINT \`FK_efd004fa410567831df8dd764fb\` FOREIGN KEY (\`userId\`) REFERENCES \`user\`(\`id\`) ON DELETE NO ACTION ON UPDATE NO ACTION`);
+        await queryRunner.query(`ALTER TABLE \`user\` CHANGE \`roleId\` \`roleId\` varchar(36) NULL DEFAULT 'NULL'`);
+        await queryRunner.query(`ALTER TABLE \`user\` CHANGE \`resetPasswordExpires\` \`resetPasswordExpires\` timestamp NULL DEFAULT 'NULL'`);
+        await queryRunner.query(`ALTER TABLE \`user\` CHANGE \`resetPasswordToken\` \`resetPasswordToken\` varchar(200) NULL DEFAULT 'NULL'`);
+        await queryRunner.query(`ALTER TABLE \`user\` CHANGE \`photoUrl\` \`photoUrl\` varchar(500) NULL DEFAULT 'NULL'`);
+        await queryRunner.query(`ALTER TABLE \`user\` ADD CONSTRAINT \`FK_c28e52f758e7bbc53828db92194\` FOREIGN KEY (\`roleId\`) REFERENCES \`role\`(\`id\`) ON DELETE NO ACTION ON UPDATE NO ACTION`);
+        await queryRunner.query(`ALTER TABLE \`collection\` CHANGE \`create_date\` \`create_date\` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP() ON UPDATE CURRENT_TIMESTAMP()`);
+        await queryRunner.query(`ALTER TABLE \`subject\` CHANGE \`acquisition_year\` \`acquisition_year\` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP() ON UPDATE CURRENT_TIMESTAMP()`);
+        await queryRunner.query(`ALTER TABLE \`collection_pubis\` DROP PRIMARY KEY`);
+        await queryRunner.query(`ALTER TABLE \`collection_pubis\` ADD PRIMARY KEY (\`pubis_id\`)`);
+        await queryRunner.query(`ALTER TABLE \`label\` ADD \`estimatedAgeByPractitioner\` int NOT NULL`);
+        await queryRunner.query(`DROP TABLE \`collection_pubis\``);
+    }
+
+}

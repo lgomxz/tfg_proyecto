@@ -1,0 +1,20 @@
+{
+  "HEADER": {
+    "COLLECTIONS": "Colecciones"
+  },
+  "RIGHT_PANEL": {
+    "NO_SELECTION": "Selecciona una muestra para ver los detalles aquí.",
+    "ANALYZE_BUTTON": "Analizar",
+    "TODDS_PHASE": "Fase de Todd:",
+    "ESTIMATED_AGE": "Edad estimada:",
+    "ANALYZING": "Analizando..."
+  },
+  "ID": "ID",
+  "COLLECTION_NAME": "Nombre de la colección",
+  "PUBIS_SHORT_ID": "ID pubis",
+  "SUBJECT_ID": "ID sujeto",
+  "LABEL_ID": "ID etiqueta",
+  "LABEL_DATE": "Fecha",
+  "PREDICTION": "Predicción",
+  "ESTIMATED_AGE_COLUMN": "Edad estimada"
+}

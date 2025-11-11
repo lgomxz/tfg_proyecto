@@ -1,0 +1,75 @@
+<div class="documentation-wrapper" *ngIf="!selectedPdf; else pdfView">
+  <div class="header">
+    <h2>{{ 'FILE_POOL.TITLE' | translate }}</h2>
+
+    <!-- Botón Upload con input oculto -->
+    <ng-container *ngIf="showAdminButtons">
+      <input
+        type="file"
+        #fileInput
+        style="display: none"
+        (change)="onFileSelected($event)" />
+
+      <button mat-raised-button color="accent" (click)="fileInput.click()">
+        {{ 'BUTTONS.UPDATE' | translate }}
+      </button>
+    </ng-container>
+  </div>
+
+  <div class="list-container">
+    <div class="searchBar">
+      <input
+        type="text"
+        [(ngModel)]="searchTerm"
+        placeholder="Search..."
+        class="search-input" />
+    </div>
+
+    <ul class="document-list">
+      <li *ngFor="let doc of filteredDocuments()">
+        <div class="doc-info">
+          <div class="doc-name">{{ doc.name }}</div>
+          <div class="doc-meta">
+            <span *ngIf="doc.createdAt"
+              >{{ 'FILE_POOL.DATE' | translate }}:
+              {{ doc.createdAt | date: 'mediumDate' }}</span
+            >
+            <span
+              >{{ 'FILE_POOL.SIZE' | translate }}:
+              {{ formatFileSize(doc.size) }}</span
+            >
+          </div>
+        </div>
+        <div class="pdf-buttons">
+          <button
+            mat-raised-button
+            color="primary"
+            (click)="openPdf(doc.name); $event.stopPropagation()">
+            {{ 'BUTTONS.OPEN' | translate }}
+          </button>
+          <button
+            *ngIf="showAdminButtons"
+            mat-raised-button
+            class="delete-btn"
+            (click)="deleteDocument(doc.name); $event.stopPropagation()">
+            {{ 'BUTTONS.DELETE' | translate }}
+          </button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<app-new-dialog
+  *ngIf="formConfig"
+  [(visible)]="visible"
+  [formConfig]="formConfig">
+</app-new-dialog>
+
+<ng-template #pdfView>
+  <div class="pdf-wrapper">
+    <app-pdf-viewer
+      [pdfFilename]="selectedPdf!"
+      (back)="closeViewer()"></app-pdf-viewer>
+  </div>
+</ng-template>

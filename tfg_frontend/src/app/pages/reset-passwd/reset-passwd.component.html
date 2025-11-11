@@ -1,0 +1,31 @@
+<div class="loginBackground">
+  <div class="particlesBackground">
+    <ngx-particles [id]="id" [options]="particlesOptions"></ngx-particles>
+  </div>
+  <div class="passwordResetContainer">
+    <div class="passwordResetCard">
+      <div class="topText">
+        <h1>Reset password</h1>
+        <div class="textInfo">
+          <span> Please enter your new password. </span>
+        </div>
+        <hr class="divider" />
+      </div>
+
+      <app-form
+        class="passwdForm"
+        [formConfig]="formConfig"
+        [form]="form"
+        [formSubmitted]="formSubmitted">
+      </app-form>
+      <div class="buttonForgotPassword">
+        <div *ngIf="resetPasswdSuccess" class="successMessage">
+          Password changed succesfully.
+        </div>
+        <button mat-raised-button color="accent" (click)="onSubmit()">
+          Reset password
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

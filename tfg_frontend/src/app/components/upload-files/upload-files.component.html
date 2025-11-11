@@ -1,0 +1,79 @@
+<div class="upload-container" [hidden]="!isVisible">
+  <div
+    class="drag-drop-area"
+    (dragover)="onDragOver($event)"
+    (drop)="onDrop($event)"
+    (dragleave)="onDragLeave()"
+    [class.dragging]="isDragging">
+    <div class="drag-drop-message">
+      <i class="pi pi-cloud-upload"></i>
+      <p>Drag & drop here or</p>
+      <button
+        class="btn-select"
+        (click)="isExcelUpload ? excelInput.click() : folderInput.click()">
+        <i class="pi pi-file"></i> Select
+        {{ isExcelUpload ? 'Excel file' : 'Folder' }}
+      </button>
+    </div>
+
+    <!-- Input para archivos de Excel -->
+    <input
+      type="file"
+      (change)="onExcelFilesSelected($event)"
+      accept=".xlsx, .xls"
+      #excelInput
+      style="display: none" />
+
+    <!-- Input para carpetas -->
+    <input
+      type="file"
+      (change)="onFolderSelected($event)"
+      webkitdirectory
+      #folderInput
+      style="display: none" />
+  </div>
+
+  <div class="header-content">
+    <button
+      (click)="confirmClearFiles()"
+      class="btn-clear"
+      [disabled]="files.length === 0">
+      <i class="pi pi-times"></i> Clean
+    </button>
+  </div>
+
+  <p-confirmDialog></p-confirmDialog>
+
+  <div *ngIf="files.length > 0; else noFiles" class="file-list">
+    <h5>Selected files</h5>
+
+    <div *ngFor="let file of files; let i = index" class="folder-card">
+      <div class="folder-info">
+        <img
+          *ngIf="getFileUrl(file); else noPreview"
+          [src]="getFileUrl(file)"
+          alt="{{ file.name }}"
+          class="thumbnail" />
+
+        <ng-template #noPreview>
+          <i class="pi pi-file" style="font-size: 1.5rem"></i>
+        </ng-template>
+
+        <ng-template #localFile>
+          <i class="pi pi-file"></i>
+        </ng-template>
+
+        <span class="file-name">{{ file.name }}</span>
+        <div class="file-size">{{ getFileSizeDisplay(file) }}</div>
+
+        <button (click)="removeFile(i)" class="btn-remove">
+          <i class="pi pi-times"></i> Delete
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #noFiles>
+    <div class="no-files-placeholder">No files selected</div>
+  </ng-template>
+</div>

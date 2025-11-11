@@ -1,0 +1,82 @@
+<div class="body">
+  <div class="leftSide">
+    <div class="header">
+      <button
+        *ngIf="currentView === 'pubis'"
+        class="back-button"
+        mat-raised-button
+        color="accent"
+        (click)="goBack()">
+        <i class="fas fa-arrow-left"></i>
+      </button>
+      <h2>
+        {{
+          currentView === 'collections'
+            ? 'Colecciones'
+            : selectedCollection?.name || ''
+        }}
+      </h2>
+      <button
+        *ngIf="selectedPubis.length > 0"
+        mat-raised-button
+        (click)="analyzeAll(selectedPubis)"
+        color="primary"
+        style="margin-top: 10px">
+        {{ 'BUTTONS.ANALYZE' | translate }} ({{ selectedPubis.length }})
+      </button>
+    </div>
+
+    <app-table
+      class="tableData"
+      [tableData]="tableData"
+      [tableConfig]="tableConfig"
+      [hasCheckboxColumn]="true"
+      (doubleClick)="currentView === 'collections' ? openPubis($event) : null"
+      (selectedRowsChange)="onSelectedRowsChange($event)"
+      (selectedRow)="handleSelected($event)">
+    </app-table>
+  </div>
+
+  <div class="rightSide">
+    <div *ngIf="isLoading" class="spinner-wrapper">
+      <app-spinner-loader></app-spinner-loader>
+    </div>
+    <div class="header" *ngIf="predictions.length > 0">
+      <button (click)="exportToExcel()" mat-raised-button color="primary">
+        {{ 'BUTTONS.DOWNLOAD_CSV' | translate }}
+      </button>
+    </div>
+
+    <!-- Tabla de predicciones en la derecha -->
+    <div
+      *ngIf="!isLoading && predictions.length > 0"
+      class="predictions-wrapper">
+      <app-table
+        class="tableData"
+        [tableData]="predictions"
+        [tableConfig]="predictionsConfig"
+        [hasCheckboxColumn]="false">
+      </app-table>
+    </div>
+
+    <!-- Mensaje por defecto -->
+    <div
+      *ngIf="!isLoading && predictions.length === 0 && !selectedRow"
+      class="no-selection-message">
+      Selecciona una muestra para ver los detalles aquí.
+    </div>
+
+    <!-- Visor de pubis -->
+    <div
+      class="right-panel"
+      *ngIf="!isLoading && predictions.length === 0 && selectedRow">
+      <div class="phasePrediction">
+        <app-pubis-viewer
+          class="force-responsive"
+          [label]="selectedLabel"
+          [shortId]="selectedRow.pubisShortId">
+        </app-pubis-viewer>
+      </div>
+    </div>
+  </div>
+</div>
