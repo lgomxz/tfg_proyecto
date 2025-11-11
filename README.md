@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # 🧬 Herramienta software para la gestión de colecciones de sínfisis del pubis, el etiquetado de sus características y la estimación de edad a partir de las mismas
 
 ## 📖 Descripción
@@ -109,6 +109,5 @@ Se proporciona únicamente:
 - La **estructura del código fuente** del backend y frontend.
 - **Esquemas de base de datos de ejemplo o vacíos**.
 - Documentación
-=======
-# tfg_proyecto
->>>>>>> 69b24890b2f6647305eafcedb5c472962cc50ed5
+
+
